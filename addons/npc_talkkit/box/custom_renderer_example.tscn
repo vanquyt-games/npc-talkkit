@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/custom_renderer_example.gd" id="1"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/anchoring/talk_anchor.gd" id="2"]
+
+[sub_resource type="Resource" id="DefaultAnchor"]
+script = ExtResource("2")
+mode = 0
+screen_spot = 1
+screen_margin = Vector2(160, 80)
+box_size = Vector2(520, 0)
+
+[node name="CustomPresentation" type="CanvasLayer"]
+layer = 92
+script = ExtResource("1")
+default_anchor = SubResource("DefaultAnchor")
+
+[node name="Panel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 160.0
+offset_top = 80.0
+offset_right = 680.0
+offset_bottom = 220.0
+
+[node name="Copy" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SpeakerName" type="Label" parent="Panel/Copy"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Custom Presenter"
+
+[node name="DialogueText" type="RichTextLabel" parent="Panel/Copy"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Dialogue"
+fit_content = true
+scroll_active = false
+

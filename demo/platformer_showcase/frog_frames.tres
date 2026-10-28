@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://demo/platformer_showcase/assets/third_party/ansimuz/sunny-land/frog-idle.png" id="1_xbo8y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkubf"]
+atlas = ExtResource("1_xbo8y")
+region = Rect2(0, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0m3c"]
+atlas = ExtResource("1_xbo8y")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_votl4"]
+atlas = ExtResource("1_xbo8y")
+region = Rect2(70, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vefvo"]
+atlas = ExtResource("1_xbo8y")
+region = Rect2(105, 0, 35, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkubf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0m3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_votl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vefvo")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}]

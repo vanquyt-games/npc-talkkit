@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box.gd" id="1"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/anchoring/talk_anchor.gd" id="2"]
+
+[sub_resource type="Resource" id="DefaultAnchor"]
+script = ExtResource("2")
+mode = 0
+screen_spot = 7
+screen_margin = Vector2(32, 32)
+stretch_horizontal = true
+box_size = Vector2(0, 178)
+
+[node name="TalkBox" type="CanvasLayer"]
+layer = 90
+script = ExtResource("1")
+default_anchor = SubResource("DefaultAnchor")
+
+[node name="Overlay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Box" type="PanelContainer" parent="Overlay"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 178.0
+
+[node name="Content" type="HBoxContainer" parent="Overlay/Box"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Visual" type="TextureRect" parent="Overlay/Box/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Copy" type="VBoxContainer" parent="Overlay/Box/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="SpeakerName" type="Label" parent="Overlay/Box/Content/Copy"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Speaker"
+
+[node name="DialogueText" type="RichTextLabel" parent="Overlay/Box/Content/Copy"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Dialogue"
+fit_content = true
+scroll_active = false
+
+[node name="Continue" type="MarginContainer" parent="Overlay/Box/Content/Copy"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="ContinueGlyph" type="Label" parent="Overlay/Box/Content/Copy/Continue"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "▼"
+
+[node name="ContinueImage" type="TextureRect" parent="Overlay/Box/Content/Copy/Continue"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stretch_mode = 2
+
+[node name="Tail" type="Polygon2D" parent="Overlay"]
+unique_name_in_owner = true
+polygon = PackedVector2Array(-12, 0, 12, 0, 0, 16)

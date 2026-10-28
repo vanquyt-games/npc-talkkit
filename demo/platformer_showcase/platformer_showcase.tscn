@@ -1,0 +1,327 @@
+[gd_scene format=3 uid="uid://btwru3usb87hl"]
+
+[ext_resource type="Script" uid="uid://bgxmmjeb1ha5j" path="res://demo/platformer_showcase/platformer_showcase.gd" id="1_6rhmd"]
+[ext_resource type="Texture2D" uid="uid://cf61f62bmqj2a" path="res://demo/platformer_showcase/assets/third_party/ansimuz/forest/tiles.png" id="3_aa78x"]
+[ext_resource type="SpriteFrames" path="res://demo/platformer_showcase/player_frames.tres" id="4_73l3d"]
+[ext_resource type="SpriteFrames" path="res://demo/platformer_showcase/frog_frames.tres" id="5_0kv4a"]
+[ext_resource type="SpriteFrames" path="res://demo/platformer_showcase/eagle_frames.tres" id="5_eagle"]
+[ext_resource type="SpriteFrames" path="res://demo/platformer_showcase/opossum_frames.tres" id="5_opossum"]
+[ext_resource type="Script" uid="uid://clnxeaoocsv8k" path="res://addons/npc_talkkit/runtime/npc_talkkit.gd" id="6_ft0kl"]
+[ext_resource type="Resource" uid="uid://bvus5dati0kyb" path="res://demo/platformer_showcase/dialogue/npc_haru.tres" id="9_gy874"]
+[ext_resource type="Resource" path="res://demo/platformer_showcase/dialogue/demo_box.tres" id="10_style"]
+[ext_resource type="Resource" path="res://demo/platformer_showcase/dialogue/npc_ren.tres" id="11_jogu0"]
+[ext_resource type="Resource" path="res://demo/platformer_showcase/dialogue/bubble_anchor.tres" id="12_anchor"]
+[ext_resource type="Resource" path="res://addons/npc_talkkit/templates/speech_bubble.tres" id="12_bubble"]
+[ext_resource type="Resource" path="res://demo/platformer_showcase/dialogue/npc_jin.tres" id="13_ncbh5"]
+[ext_resource type="Resource" path="res://demo/platformer_showcase/dialogue/demo_custom_box.tres" id="14_custom"]
+[ext_resource type="Script" uid="uid://stucgvlrcx7a" path="res://addons/npc_talkkit/resources/talk_conversation.gd" id="15_conv"]
+[ext_resource type="Script" uid="uid://dfa1h6cowoj6v" path="res://addons/npc_talkkit/resources/talk_line.gd" id="16_line"]
+[ext_resource type="Script" uid="uid://biwexklawo8f0" path="res://addons/npc_talkkit/resources/talk_speaker.gd" id="1_speaker"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="1_box"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/anchoring/talk_anchor.gd" id="2_anchor_script"]
+[ext_resource type="Resource" path="res://demo/platformer_showcase/dialogue/narrator_box.tres" id="18_narrator_box"]
+[ext_resource type="Resource" path="res://demo/platformer_showcase/dialogue/narrator_anchor.tres" id="19_narrator_anchor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax1p5"]
+size = Vector2(3456, 90)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gy874"]
+radius = 15.0
+height = 54.0
+
+[sub_resource type="Resource" id="Line_bottom_welcome"]
+script = ExtResource("16_line")
+text = "Hello {{player_name}}. The lower trail is calm."
+event_payload = null
+line_id = &"checkpoint_1_welcome"
+
+[sub_resource type="Resource" id="Line_bottom_showcase"]
+script = ExtResource("16_line")
+text = "This is the Classic Panel — clear, cinematic, and anchored to the screen."
+event_id = &"box_checkpoint_1"
+event_payload = {
+"box": "classic_panel",
+"checkpoint": 1,
+"speaker_id": "haru"
+}
+line_id = &"checkpoint_1_showcase"
+
+[sub_resource type="Resource" id="Anchor_ren_from_canopy"]
+script = ExtResource("2_anchor_script")
+mode = 1
+follow_target = NodePath("../../Ren")
+follow_offset = Vector2(0, -100)
+pivot = Vector2(0.5, 1)
+when_offscreen = 0
+
+[sub_resource type="Resource" id="Line_bottom_ren"]
+script = ExtResource("16_line")
+text = "[i]From the canopy:[/i] He says that to everyone, {{player_name}}."
+speaker_mode = 2
+speaker = ExtResource("11_jogu0")
+dialogue_box = ExtResource("12_bubble")
+placement = SubResource("Anchor_ren_from_canopy")
+event_payload = null
+line_id = &"checkpoint_1_ren"
+
+[sub_resource type="Resource" id="Conv_bottom"]
+script = ExtResource("15_conv")
+conversation_id = &"forest_checkpoint_1"
+lines = Array[ExtResource("16_line")]([SubResource("Line_bottom_welcome"), SubResource("Line_bottom_ren"), SubResource("Line_bottom_showcase")])
+default_speaker = ExtResource("9_gy874")
+default_dialogue_box = ExtResource("10_style")
+event_payload = null
+
+[sub_resource type="Resource" id="Line_bubble_welcome"]
+script = ExtResource("16_line")
+text = "Up here, every rustle carries a story, {{player_name}}."
+event_payload = null
+line_id = &"checkpoint_2_welcome"
+
+[sub_resource type="Resource" id="Line_bubble_offer"]
+script = ExtResource("16_line")
+text = "Shall I teach you to read the canopy?"
+event_id = &"canopy_offer"
+event_payload = {
+"speaker_id": "ren"
+}
+event_blocking = true
+line_id = &"checkpoint_2_offer"
+
+[sub_resource type="Resource" id="Line_bubble_showcase"]
+script = ExtResource("16_line")
+text = "This Speech Bubble follows me in world space while your platformer keeps control of everything else."
+event_id = &"box_checkpoint_2"
+event_payload = {
+"box": "speech_bubble",
+"checkpoint": 2,
+"speaker_id": "ren"
+}
+line_id = &"checkpoint_2_showcase"
+
+[sub_resource type="Resource" id="Conv_bubble"]
+script = ExtResource("15_conv")
+conversation_id = &"forest_checkpoint_2"
+lines = Array[ExtResource("16_line")]([SubResource("Line_bubble_welcome"), SubResource("Line_bubble_offer"), SubResource("Line_bubble_showcase")])
+default_speaker = ExtResource("11_jogu0")
+default_dialogue_box = ExtResource("12_bubble")
+default_placement = ExtResource("12_anchor")
+event_payload = null
+
+[sub_resource type="Resource" id="Line_custom_welcome"]
+script = ExtResource("16_line")
+text = "You reached the old shrine, {{player_name}}."
+event_payload = null
+line_id = &"checkpoint_3_welcome"
+
+[sub_resource type="Resource" id="Line_custom_showcase"]
+script = ExtResource("16_line")
+text = "This box uses a renderer scene of its own. TalkKit emits the same host callbacks underneath."
+event_id = &"box_checkpoint_3"
+event_payload = {
+"box": "custom_renderer",
+"checkpoint": 3,
+"speaker_id": "jin"
+}
+line_id = &"checkpoint_3_showcase"
+
+[sub_resource type="Resource" id="Conv_custom"]
+script = ExtResource("15_conv")
+conversation_id = &"forest_checkpoint_3"
+lines = Array[ExtResource("16_line")]([SubResource("Line_custom_welcome"), SubResource("Line_custom_showcase")])
+default_speaker = ExtResource("13_ncbh5")
+default_dialogue_box = ExtResource("14_custom")
+event_payload = null
+
+[node name="PlatformerShowcase" type="Node2D" unique_id=1361101167]
+script = ExtResource("1_6rhmd")
+
+[node name="Platforms" type="Node2D" parent="." unique_id=829948235]
+
+[node name="Ground" type="StaticBody2D" parent="Platforms" unique_id=522541579]
+position = Vector2(1728, 478)
+
+[node name="GroundShape" type="CollisionShape2D" parent="Platforms/Ground" unique_id=1734751525]
+shape = SubResource("RectangleShape2D_ax1p5")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1681975747]
+unique_name_in_owner = true
+position = Vector2(150, 405)
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="Player" unique_id=1463025065]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(0, 2)
+scale = Vector2(2.4, 2.4)
+sprite_frames = ExtResource("4_73l3d")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="Player" unique_id=1802557228]
+shape = SubResource("CapsuleShape2D_gy874")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=362829457]
+position = Vector2(140, 0)
+zoom = Vector2(1.6, 1.6)
+limit_left = 0
+limit_top = 121
+limit_right = 2360
+limit_bottom = 526
+
+[node name="Haru" type="Node2D" parent="." unique_id=1809741410]
+unique_name_in_owner = true
+position = Vector2(650, 378)
+
+[node name="BottomSprite" type="AnimatedSprite2D" parent="Haru" unique_id=470863546]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(0, 17)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("5_0kv4a")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="BottomPrompt" type="Label" parent="Haru" unique_id=181251761]
+unique_name_in_owner = true
+offset_left = -62.0
+offset_top = -66.0
+offset_right = 62.0
+offset_bottom = -44.0
+theme_override_colors/font_color = Color(1, 0.94509804, 0.72156864, 1)
+theme_override_colors/font_outline_color = Color(0.0627451, 0.16862746, 0.14117648, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 13
+text = "[ E ]  TALK"
+horizontal_alignment = 1
+
+[node name="BottomTalkKit" type="Node" parent="Haru" unique_id=383064229 node_paths=PackedStringArray("conversation_target")]
+unique_name_in_owner = true
+script = ExtResource("6_ft0kl")
+conversations = Array[ExtResource("15_conv")]([SubResource("Conv_bottom")])
+speakers = Array[ExtResource("1_speaker")]([ExtResource("9_gy874"), ExtResource("11_jogu0")])
+dialogue_boxes = Array[ExtResource("1_box")]([ExtResource("10_style"), ExtResource("12_bubble")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Ren" type="Node2D" parent="." unique_id=1470802629]
+unique_name_in_owner = true
+position = Vector2(1150, 378)
+
+[node name="BubbleSprite" type="AnimatedSprite2D" parent="Ren" unique_id=1386626128]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(0, -29.0)
+scale = Vector2(2.2, 2.2)
+sprite_frames = ExtResource("5_eagle")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="BubblePrompt" type="Label" parent="Ren" unique_id=2039926648]
+unique_name_in_owner = true
+offset_left = -62.0
+offset_top = -112.0
+offset_right = 62.0
+offset_bottom = -90.0
+theme_override_colors/font_color = Color(1, 0.94509804, 0.72156864, 1)
+theme_override_colors/font_outline_color = Color(0.0627451, 0.16862746, 0.14117648, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 13
+text = "[ E ]  TALK"
+horizontal_alignment = 1
+
+[node name="BubbleTalkKit" type="Node" parent="Ren" unique_id=1528282704 node_paths=PackedStringArray("conversation_target")]
+unique_name_in_owner = true
+script = ExtResource("6_ft0kl")
+conversations = Array[ExtResource("15_conv")]([SubResource("Conv_bubble")])
+speakers = Array[ExtResource("1_speaker")]([ExtResource("11_jogu0")])
+dialogue_boxes = Array[ExtResource("1_box")]([ExtResource("12_bubble")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Jin" type="Node2D" parent="." unique_id=535950744]
+unique_name_in_owner = true
+position = Vector2(1650, 378)
+
+[node name="CustomSprite" type="AnimatedSprite2D" parent="Jin" unique_id=885090472]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(0, 17)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("5_opossum")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CustomPrompt" type="Label" parent="Jin" unique_id=1954714787]
+unique_name_in_owner = true
+offset_left = -62.0
+offset_top = -66.0
+offset_right = 62.0
+offset_bottom = -44.0
+theme_override_colors/font_color = Color(1, 0.94509804, 0.72156864, 1)
+theme_override_colors/font_outline_color = Color(0.0627451, 0.16862746, 0.14117648, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 13
+text = "[ E ]  TALK"
+horizontal_alignment = 1
+
+[node name="CustomTalkKit" type="Node" parent="Jin" unique_id=1596251021 node_paths=PackedStringArray("conversation_target")]
+unique_name_in_owner = true
+script = ExtResource("6_ft0kl")
+conversations = Array[ExtResource("15_conv")]([SubResource("Conv_custom")])
+speakers = Array[ExtResource("1_speaker")]([ExtResource("13_ncbh5")])
+dialogue_boxes = Array[ExtResource("1_box")]([ExtResource("14_custom")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Narrator" type="Node" parent="." unique_id=1900000001]
+unique_name_in_owner = true
+script = ExtResource("6_ft0kl")
+dialogue_boxes = Array[ExtResource("1_box")]([ExtResource("18_narrator_box")])
+quick_say_dialogue_box = ExtResource("18_narrator_box")
+quick_say_placement = ExtResource("19_narrator_anchor")
+request_lock_on_start = false
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=467923477]
+layer = 20
+
+[node name="Overlay" type="Control" parent="HUD" unique_id=1600726400]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Hint" type="Label" parent="HUD/Overlay" unique_id=495894450]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -58.0
+offset_right = 260.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.9019608, 0.94509804, 0.8784314, 0.7529412)
+theme_override_colors/font_outline_color = Color(0.03137255, 0.09019608, 0.078431375, 0.78431374)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 14
+text = "← →  MOVE     SPACE  JUMP     E  TALK"
+horizontal_alignment = 1
+
+[node name="BackdropCanvas" type="CanvasLayer" parent="." unique_id=385319123]
+layer = -20
+
+[node name="Backdrop" type="ColorRect" parent="BackdropCanvas" unique_id=2118292159]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.13, 0.14, 0.17, 1)

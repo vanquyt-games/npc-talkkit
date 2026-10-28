@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="TalkBoxTemplate" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_layer.gd" id="1_eg0qx"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="2_acsep"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfko7"]
+bg_color = Color(0.06, 0.05, 0.04, 0.78)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.84, 0.64, 0.3, 0.45)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Resource" id="Resource_nre2w"]
+script = ExtResource("1_eg0qx")
+name = "Base Appearance"
+visual_source = 0
+style = SubResource("StyleBoxFlat_cfko7")
+padding = Vector4(18, 10, 18, 10)
+
+[resource]
+resource_name = "Narrator Box"
+script = ExtResource("2_acsep")
+base = SubResource("Resource_nre2w")
+text_size = 18
+text_color = Color(0.97, 0.93, 0.84, 1)
+text_min_size = Vector2(0, 0)
+name_shown = false
+visual_shown = false
+continue_shown = false

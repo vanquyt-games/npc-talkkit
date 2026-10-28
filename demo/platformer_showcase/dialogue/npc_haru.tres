@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TalkSpeaker" format=3 uid="uid://bvus5dati0kyb"]
+
+[ext_resource type="Script" uid="uid://biwexklawo8f0" path="res://addons/npc_talkkit/resources/talk_speaker.gd" id="1"]
+[ext_resource type="Script" uid="uid://cecw6e0acjipw" path="res://addons/npc_talkkit/resources/talk_dialogue_visual.gd" id="2"]
+[ext_resource type="AudioStream" path="res://demo/platformer_showcase/dialogue/voice_blip_1.tres" id="3"]
+[ext_resource type="Texture2D" path="res://demo/platformer_showcase/dialogue/portrait_haru.tres" id="4"]
+
+[sub_resource type="Resource" id="Visual_haru"]
+script = ExtResource("2")
+texture = ExtResource("4")
+
+[resource]
+script = ExtResource("1")
+speaker_id = &"haru"
+display_name = "Haru · Trail Keeper"
+visual = SubResource("Visual_haru")
+voice_blip = ExtResource("3")
+voice_pitch_min = 0.92
+voice_pitch_max = 1.06

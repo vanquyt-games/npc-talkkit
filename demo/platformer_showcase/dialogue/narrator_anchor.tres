@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TalkAnchor" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/anchoring/talk_anchor.gd" id="1_6iofe"]
+
+[resource]
+script = ExtResource("1_6iofe")
+screen_spot = 1
+screen_margin = Vector2(32, 24)
+box_size = Vector2(560, 0)

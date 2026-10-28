@@ -1,0 +1,80 @@
+[gd_resource type="Resource" script_class="TalkBoxTemplate" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="1"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_layer.gd" id="1_hdo54"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulsc5"]
+bg_color = Color(0.13, 0.085, 0.055, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.84, 0.64, 0.3, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="Resource" id="Resource_gf2t0"]
+script = ExtResource("1_hdo54")
+name = "Base Appearance"
+visual_source = 0
+style = SubResource("StyleBoxFlat_ulsc5")
+padding = Vector4(22, 22, 22, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdo54"]
+bg_color = Color(0.46, 0.16, 0.1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.84, 0.64, 0.3, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Resource" id="Resource_ulsc5"]
+script = ExtResource("1_hdo54")
+name = "Name Box"
+slot = 1
+visual_source = 0
+style = SubResource("StyleBoxFlat_hdo54")
+padding_mode = 1
+padding = Vector4(12, 3, 12, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gf2t0"]
+bg_color = Color(0.22, 0.15, 0.09, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.84, 0.64, 0.3, 0.7)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="Resource" id="Resource_hoi22"]
+script = ExtResource("1_hdo54")
+name = "Portrait Frame"
+slot = 2
+visual_source = 0
+style = SubResource("StyleBoxFlat_gf2t0")
+
+[resource]
+script = ExtResource("1")
+base = SubResource("Resource_gf2t0")
+text_color = Color(0.97, 0.93, 0.84, 1)
+name_placement = 1
+name_offset = Vector2(14, 0)
+name_size = 18
+name_color = Color(0.97, 0.93, 0.84, 1)
+layers = Array[ExtResource("1_hdo54")]([SubResource("Resource_ulsc5"), SubResource("Resource_hoi22")])

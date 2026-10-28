@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://demo/platformer_showcase/assets/third_party/ansimuz/sunny-land/eagle-fly.png" id="1_m7r6l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql3gd"]
+atlas = ExtResource("1_m7r6l")
+region = Rect2(0, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evw8o"]
+atlas = ExtResource("1_m7r6l")
+region = Rect2(40, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6x2e"]
+atlas = ExtResource("1_m7r6l")
+region = Rect2(80, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2atkf"]
+atlas = ExtResource("1_m7r6l")
+region = Rect2(120, 0, 40, 41)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql3gd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evw8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6x2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2atkf")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]

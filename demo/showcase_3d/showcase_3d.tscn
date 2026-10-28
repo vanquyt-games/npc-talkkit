@@ -1,0 +1,128 @@
+[gd_scene load_steps=19 format=3]
+
+[ext_resource type="Script" path="res://demo/showcase_3d/showcase_3d.gd" id="1"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/runtime/npc_talkkit.gd" id="2"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/runtime/talk_interaction_area_3d.gd" id="3"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/anchoring/talk_anchor.gd" id="4"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_conversation.gd" id="5"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_line.gd" id="6"]
+[ext_resource type="Resource" path="res://addons/npc_talkkit/templates/speech_bubble.tres" id="8"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_speaker.gd" id="9"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="10_box"]
+
+[sub_resource type="Resource" id="Villager"]
+script = ExtResource("9")
+speaker_id = &"villager"
+display_name = "Villager"
+
+[sub_resource type="BoxMesh" id="GroundMesh"]
+size = Vector3(40, 0.5, 40)
+
+[sub_resource type="BoxShape3D" id="GroundShape"]
+size = Vector3(40, 0.5, 40)
+
+[sub_resource type="CapsuleMesh" id="BodyMesh"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="BodyShape"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="SphereShape3D" id="TalkRange"]
+radius = 2.6
+
+[sub_resource type="Resource" id="HeadAnchor"]
+script = ExtResource("4")
+mode = 1
+follow_offset = Vector2(0, -12)
+follow_offset_3d = Vector3(0, 1.25, 0)
+pivot = Vector2(0.5, 1)
+when_offscreen = 1
+max_distance = 30.0
+scale_with_distance = true
+reference_distance = 11.5
+min_scale = 0.65
+max_scale = 1.25
+
+[sub_resource type="Resource" id="Line_a1"]
+script = ExtResource("6")
+text = "Up here, {{player_name}}. The bubble is tracking my head in world space."
+
+[sub_resource type="Resource" id="Line_a2"]
+script = ExtResource("6")
+text = "Walk around me and it follows. Back off far enough and it hides itself."
+
+[sub_resource type="Resource" id="Conv_a"]
+script = ExtResource("5")
+conversation_id = &"greeting"
+default_speaker = SubResource("Villager")
+default_dialogue_box = ExtResource("8")
+default_placement = SubResource("HeadAnchor")
+lines = Array[ExtResource("6")]([SubResource("Line_a1"), SubResource("Line_a2")])
+
+[node name="Showcase3D" type="Node3D"]
+script = ExtResource("1")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.86, -0.35, 0.37, 0, 0.72, 0.69, -0.51, -0.59, 0.62, 0, 8, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.94, 0.34, 0, -0.34, 0.94, 0, 5.5, 11)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+mesh = SubResource("GroundMesh")
+
+[node name="GroundCollision" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("GroundShape")
+
+[node name="Villager" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.9, 0)
+
+[node name="Body" type="MeshInstance3D" parent="Villager"]
+mesh = SubResource("BodyMesh")
+
+[node name="TalkKit" type="Node" parent="Villager" node_paths=PackedStringArray("conversation_target")]
+unique_name_in_owner = true
+script = ExtResource("2")
+conversations = Array[ExtResource("5")]([SubResource("Conv_a")])
+speakers = Array[ExtResource("9")]([SubResource("Villager")])
+dialogue_boxes = Array[ExtResource("10_box")]([ExtResource("8")])
+default_params = {
+"player_name": "traveller"
+}
+conversation_target = NodePath("..")
+
+[node name="TalkArea" type="Area3D" parent="Villager" node_paths=PackedStringArray("talkkit_component")]
+script = ExtResource("3")
+talkkit_component = NodePath("../TalkKit")
+conversation_id = &"greeting"
+
+[node name="TalkRange" type="CollisionShape3D" parent="Villager/TalkArea"]
+shape = SubResource("TalkRange")
+
+[node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.9, 0)
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("BodyMesh")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="Player"]
+shape = SubResource("BodyShape")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Hint" type="Label" parent="HUD"]
+unique_name_in_owner = true
+visible = false
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 420.0
+offset_bottom = 48.0
+text = "Press Space to talk"

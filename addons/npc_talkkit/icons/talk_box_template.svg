@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <!-- A panel being styled, not a panel being spoken into: the frame says what
+       is drawn, the brush says this resource decides how. -->
+  <path fill="#C58AFF" fill-rule="evenodd" d="M1.5 2.5h13v8h-1.5v-6.5h-10v5h4V10.5h-5.5v-8Z"/>
+  <path fill="#C58AFF" d="M10.9 14.6c-.9.5-2.4.5-3-.3.5 0 .9-.3 1-.8.2-.8-.5-1.1-.3-1.9.2-.8 1-1.2 1.8-1l.6.2 2.6-3.1 1.5 1.3-2.9 2.8.1.6c.2.8-.3 1.7-1.4 2.2Z"/>
+</svg>
