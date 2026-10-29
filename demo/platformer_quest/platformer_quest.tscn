@@ -1,0 +1,1488 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://demo/platformer_quest/platformer_quest.gd" id="1_25552"]
+[ext_resource type="PackedScene" path="res://demo/platformer_quest/godot_platformer/level/level.tscn" id="2_qacbh"]
+[ext_resource type="Texture2D" path="res://demo/platformer_quest/godot_platformer/player/robot.webp" id="3_dq2ur"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/godot_platformer/gui/kenney_mini_square.ttf" id="4_uf1d6"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/runtime/npc_talkkit.gd" id="5_6ynva"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_conversation.gd" id="6_42wsl"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/quest_panel.tres" id="7_16psp"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/ada.tres" id="8_phq31"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_line.gd" id="9_fwqju"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_speaker.gd" id="10_a7gg7"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="11_c2j8p"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/quest_bubble.tres" id="12_wk65j"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/anchoring/talk_anchor.gd" id="13_7nfyt"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/volt.tres" id="14_7w7oi"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/quest_terminal.tres" id="15_4vqn8"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/archive.tres" id="16_d15mc"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/boxes/midnight_glass.tres" id="17_i5bej"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/noct.tres" id="18_dka6b"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/boxes/cozy_note.tres" id="19_bcdd7"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/fern.tres" id="20_tqmv7"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/boxes/royal_court.tres" id="21_2osg6"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/herald.tres" id="22_mgro6"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/boxes/comic_pop.tres" id="23_8usp3"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/pop.tres" id="24_oas5f"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/boxes/sky_window.tres" id="25_gp2op"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/breeze.tres" id="26_ofbl4"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/boxes/paper_card.tres" id="27_wfmx1"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/sorrel.tres" id="28_hqapg"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/boxes/street_slash.tres" id="29_d0u0a"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/dash.tres" id="30_cyv58"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/boxes/arcade.tres" id="31_2hk6j"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/pixel.tres" id="32_423dm"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/boxes/neon_night.tres" id="33_mw81j"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/flux.tres" id="34_8h2hd"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/boxes/holo_hud.tres" id="35_6xloe"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/scout.tres" id="36_ke104"]
+[ext_resource type="PackedScene" path="res://demo/platformer_quest/godot_platformer/player/player.tscn" id="37_yu4hr"]
+[ext_resource type="Script" path="res://demo/platformer_quest/godot_platformer/player/player.gd" id="38_gsgpp"]
+[ext_resource type="Resource" path="res://demo/platformer_quest/dialogue/quest_narrator.tres" id="39_1bpxv"]
+[ext_resource type="Theme" path="res://demo/platformer_quest/godot_platformer/gui/theme.tres" id="40_o4x0r"]
+[ext_resource type="PackedScene" path="res://demo/platformer_quest/godot_platformer/gui/coins_counter.tscn" id="41_p7ldu"]
+[ext_resource type="Script" path="res://demo/platformer_quest/godot_platformer/gui/coins_counter.gd" id="42_h3872"]
+[ext_resource type="Script" path="res://demo/platformer_quest/choice_menu.gd" id="43_5abwv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ti06"]
+font = ExtResource("4_uf1d6")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.1, 0.07, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_am22w"]
+script = ExtResource("9_fwqju")
+text = "Oh! A robot that still walks. Mine all rusted shut years ago."
+event_payload = null
+line_id = &"ada_intro_1"
+
+[sub_resource type="Resource" id="Resource_utokv"]
+script = ExtResource("9_fwqju")
+text = "I'm Ada. I fix things around here, when I have the parts."
+event_payload = null
+line_id = &"ada_intro_2"
+
+[sub_resource type="Resource" id="Resource_y0ltv"]
+script = ExtResource("9_fwqju")
+text = "The crabs knocked my coins all over the cliffs, and I need {{coins_needed}} of them for a new power cell."
+event_payload = null
+line_id = &"ada_intro_3"
+
+[sub_resource type="Resource" id="Resource_d3u11"]
+script = ExtResource("9_fwqju")
+text = "Could you bring them back, {{player_name}}?"
+event_id = &"ada_offer"
+event_payload = {
+"branches": ["ada_accept", "ada_reward", "ada_decline"],
+"options": ["Sure, I'll find them.", "What's in it for me?", "Not right now."]
+}
+event_blocking = true
+line_id = &"ada_intro_4"
+
+[sub_resource type="Resource" id="Resource_yqr0q"]
+script = ExtResource("6_42wsl")
+conversation_id = &"ada_intro"
+default_speaker = ExtResource("8_phq31")
+default_dialogue_box = ExtResource("7_16psp")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_am22w"), SubResource("Resource_utokv"), SubResource("Resource_y0ltv"), SubResource("Resource_d3u11")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_1uadx"]
+script = ExtResource("9_fwqju")
+text = "Wonderful. Jump, then jump again in the air: your legs can reach the high ledges."
+event_payload = null
+line_id = &"ada_accept_1"
+
+[sub_resource type="Resource" id="Resource_sdbk6"]
+script = ExtResource("9_fwqju")
+text = "Come back when you have {{coins_needed}}."
+event_id = &"quest_started"
+event_payload = null
+line_id = &"ada_accept_2"
+
+[sub_resource type="Resource" id="Resource_cppx5"]
+script = ExtResource("6_42wsl")
+conversation_id = &"ada_accept"
+default_speaker = ExtResource("8_phq31")
+default_dialogue_box = ExtResource("7_16psp")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_1uadx"), SubResource("Resource_sdbk6")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_0exkh"]
+script = ExtResource("9_fwqju")
+text = "Ha. Fair question. There's an old blaster in my workshop."
+event_payload = null
+line_id = &"ada_reward_1"
+
+[sub_resource type="Resource" id="Resource_jpc3j"]
+script = ExtResource("9_fwqju")
+text = "It's yours once the power cell is paid for. Deal?"
+event_id = &"ada_offer"
+event_payload = {
+"branches": ["ada_accept", "ada_reward", "ada_decline"],
+"options": ["Sure, I'll find them.", "What's in it for me?", "Not right now."]
+}
+event_blocking = true
+line_id = &"ada_reward_2"
+
+[sub_resource type="Resource" id="Resource_vr75o"]
+script = ExtResource("6_42wsl")
+conversation_id = &"ada_reward"
+default_speaker = ExtResource("8_phq31")
+default_dialogue_box = ExtResource("7_16psp")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_0exkh"), SubResource("Resource_jpc3j")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_exl8f"]
+script = ExtResource("9_fwqju")
+text = "That's all right. I'll be here. I'm always here."
+event_payload = null
+line_id = &"ada_decline_1"
+
+[sub_resource type="Resource" id="Resource_61yjx"]
+script = ExtResource("6_42wsl")
+conversation_id = &"ada_decline"
+default_speaker = ExtResource("8_phq31")
+default_dialogue_box = ExtResource("7_16psp")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_exl8f")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_5wq54"]
+script = ExtResource("9_fwqju")
+text = "{{coins_have}} so far. {{coins_left}} to go."
+event_payload = null
+line_id = &"ada_waiting_1"
+
+[sub_resource type="Resource" id="Resource_1fsuc"]
+script = ExtResource("9_fwqju")
+text = "Try the floating islands. Coins like the shade under the trees."
+event_payload = null
+line_id = &"ada_waiting_2"
+
+[sub_resource type="Resource" id="Resource_rgmwj"]
+script = ExtResource("6_42wsl")
+conversation_id = &"ada_waiting"
+default_speaker = ExtResource("8_phq31")
+default_dialogue_box = ExtResource("7_16psp")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_5wq54"), SubResource("Resource_1fsuc")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_n8kgo"]
+script = ExtResource("9_fwqju")
+text = "You switched on ARCHIVE-7? Up on the west cliff?"
+event_payload = null
+line_id = &"ada_archive_1"
+
+[sub_resource type="Resource" id="Resource_ass03"]
+script = ExtResource("9_fwqju")
+text = "Then you know I built the first walkers in this valley. You might be one of mine."
+event_id = &"archive_mentioned"
+event_payload = null
+line_id = &"ada_archive_2"
+
+[sub_resource type="Resource" id="Resource_0yv7y"]
+script = ExtResource("9_fwqju")
+text = "{{coins_left}} coins to go, by the way."
+event_payload = null
+line_id = &"ada_archive_3"
+
+[sub_resource type="Resource" id="Resource_h8yta"]
+script = ExtResource("6_42wsl")
+conversation_id = &"ada_archive"
+default_speaker = ExtResource("8_phq31")
+default_dialogue_box = ExtResource("7_16psp")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_n8kgo"), SubResource("Resource_ass03"), SubResource("Resource_0yv7y")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_huyvt"]
+script = ExtResource("9_fwqju")
+text = "That's all {{coins_needed}}! Hold still…"
+event_payload = null
+line_id = &"ada_coins_done_1"
+
+[sub_resource type="Resource" id="Resource_u8whw"]
+script = ExtResource("9_fwqju")
+text = "[i]Clunk.[/i] There."
+event_payload = null
+line_id = &"ada_coins_done_2"
+
+[sub_resource type="Resource" id="Resource_g7xj2"]
+script = ExtResource("9_fwqju")
+text = "The blaster is yours. Press J to fire."
+event_id = &"give_blaster"
+event_payload = null
+line_id = &"ada_coins_done_3"
+
+[sub_resource type="Resource" id="Resource_043yl"]
+script = ExtResource("9_fwqju")
+text = "One more favour. Three crabs are chewing the cables down here. Could you chase them off?"
+event_id = &"crab_quest"
+event_payload = null
+line_id = &"ada_coins_done_4"
+
+[sub_resource type="Resource" id="Resource_q5q3u"]
+script = ExtResource("6_42wsl")
+conversation_id = &"ada_coins_done"
+default_speaker = ExtResource("8_phq31")
+default_dialogue_box = ExtResource("7_16psp")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_huyvt"), SubResource("Resource_u8whw"), SubResource("Resource_g7xj2"), SubResource("Resource_043yl")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_cehnn"]
+script = ExtResource("9_fwqju")
+text = "{{crabs_left}} still out there. I can hear them clicking."
+event_payload = null
+line_id = &"ada_crabs_waiting_1"
+
+[sub_resource type="Resource" id="Resource_6wusw"]
+script = ExtResource("6_42wsl")
+conversation_id = &"ada_crabs_waiting"
+default_speaker = ExtResource("8_phq31")
+default_dialogue_box = ExtResource("7_16psp")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_cehnn")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_rdnwk"]
+script = ExtResource("9_fwqju")
+text = "Quiet at last. Listen: the generator's humming again."
+event_payload = null
+line_id = &"ada_done_1"
+
+[sub_resource type="Resource" id="Resource_50duv"]
+script = ExtResource("9_fwqju")
+text = "Thank you, {{player_name}}. If you see Volt on the east cliff, tell him the lights are back."
+event_id = &"quest_complete"
+event_payload = null
+line_id = &"ada_done_2"
+
+[sub_resource type="Resource" id="Resource_day7m"]
+script = ExtResource("6_42wsl")
+conversation_id = &"ada_done"
+default_speaker = ExtResource("8_phq31")
+default_dialogue_box = ExtResource("7_16psp")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_rdnwk"), SubResource("Resource_50duv")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_wtlbu"]
+script = ExtResource("9_fwqju")
+text = "Go on, explore. The valley's safe now."
+event_payload = null
+line_id = &"ada_after_1"
+
+[sub_resource type="Resource" id="Resource_45fkl"]
+script = ExtResource("6_42wsl")
+conversation_id = &"ada_after"
+default_speaker = ExtResource("8_phq31")
+default_dialogue_box = ExtResource("7_16psp")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_wtlbu")])
+event_payload = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_w5qo1"]
+font = ExtResource("4_uf1d6")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.1, 0.07, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_u26ot"]
+script = ExtResource("13_7nfyt")
+mode = 1
+follow_offset = Vector2(0, -60)
+
+[sub_resource type="Resource" id="Resource_dqu7b"]
+script = ExtResource("9_fwqju")
+text = "Up here you can see the whole valley."
+event_payload = null
+line_id = &"volt_hub_1"
+
+[sub_resource type="Resource" id="Resource_rn1tt"]
+script = ExtResource("9_fwqju")
+text = "Ask me anything."
+event_id = &"volt_menu"
+event_payload = {
+"branches": ["volt_coins", "volt_ada", "volt_jump", "volt_bye"],
+"options": ["Where are the coins?", "Who's Ada?", "How did you get up here?", "Bye."]
+}
+event_blocking = true
+line_id = &"volt_hub_2"
+
+[sub_resource type="Resource" id="Resource_2nrs4"]
+script = ExtResource("6_42wsl")
+conversation_id = &"volt_hub"
+default_speaker = ExtResource("14_7w7oi")
+default_dialogue_box = ExtResource("12_wk65j")
+default_placement = SubResource("Resource_u26ot")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_dqu7b"), SubResource("Resource_rn1tt")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_jd1s7"]
+script = ExtResource("9_fwqju")
+text = "Under the floating islands, mostly. And one row right above the crabs."
+event_payload = null
+line_id = &"volt_coins_1"
+
+[sub_resource type="Resource" id="Resource_lrn3l"]
+script = ExtResource("9_fwqju")
+text = "Anything else?"
+event_id = &"volt_menu"
+event_payload = {
+"branches": ["volt_coins", "volt_ada", "volt_jump", "volt_bye"],
+"options": ["Where are the coins?", "Who's Ada?", "How did you get up here?", "Bye."]
+}
+event_blocking = true
+line_id = &"volt_coins_2"
+
+[sub_resource type="Resource" id="Resource_772g5"]
+script = ExtResource("6_42wsl")
+conversation_id = &"volt_coins"
+default_speaker = ExtResource("14_7w7oi")
+default_dialogue_box = ExtResource("12_wk65j")
+default_placement = SubResource("Resource_u26ot")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_jd1s7"), SubResource("Resource_lrn3l")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_32s1c"]
+script = ExtResource("9_fwqju")
+text = "She built half the robots in this valley. Me too, I think."
+event_payload = null
+line_id = &"volt_ada_1"
+
+[sub_resource type="Resource" id="Resource_fxg6o"]
+script = ExtResource("9_fwqju")
+text = "Anything else?"
+event_id = &"volt_menu"
+event_payload = {
+"branches": ["volt_coins", "volt_ada", "volt_jump", "volt_bye"],
+"options": ["Where are the coins?", "Who's Ada?", "How did you get up here?", "Bye."]
+}
+event_blocking = true
+line_id = &"volt_ada_2"
+
+[sub_resource type="Resource" id="Resource_i8365"]
+script = ExtResource("6_42wsl")
+conversation_id = &"volt_ada"
+default_speaker = ExtResource("14_7w7oi")
+default_dialogue_box = ExtResource("12_wk65j")
+default_placement = SubResource("Resource_u26ot")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_32s1c"), SubResource("Resource_fxg6o")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_qxtil"]
+script = ExtResource("9_fwqju")
+text = "Run, jump, then jump again at the top. The second jump carries you further."
+event_payload = null
+line_id = &"volt_jump_1"
+
+[sub_resource type="Resource" id="Resource_yv5oi"]
+script = ExtResource("9_fwqju")
+text = "Anything else?"
+event_id = &"volt_menu"
+event_payload = {
+"branches": ["volt_coins", "volt_ada", "volt_jump", "volt_bye"],
+"options": ["Where are the coins?", "Who's Ada?", "How did you get up here?", "Bye."]
+}
+event_blocking = true
+line_id = &"volt_jump_2"
+
+[sub_resource type="Resource" id="Resource_slpqc"]
+script = ExtResource("6_42wsl")
+conversation_id = &"volt_jump"
+default_speaker = ExtResource("14_7w7oi")
+default_dialogue_box = ExtResource("12_wk65j")
+default_placement = SubResource("Resource_u26ot")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_qxtil"), SubResource("Resource_yv5oi")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_kbja4"]
+script = ExtResource("9_fwqju")
+text = "See you, {{player_name}}."
+event_payload = null
+line_id = &"volt_bye_1"
+
+[sub_resource type="Resource" id="Resource_ffc45"]
+script = ExtResource("6_42wsl")
+conversation_id = &"volt_bye"
+default_speaker = ExtResource("14_7w7oi")
+default_dialogue_box = ExtResource("12_wk65j")
+default_placement = SubResource("Resource_u26ot")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_kbja4")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_7d71r"]
+script = ExtResource("9_fwqju")
+text = "The lights are back on! Ada did it."
+event_payload = null
+line_id = &"volt_after_1"
+
+[sub_resource type="Resource" id="Resource_by83c"]
+script = ExtResource("9_fwqju")
+text = "Well. You did it. Don't tell her I said that."
+event_payload = null
+line_id = &"volt_after_2"
+
+[sub_resource type="Resource" id="Resource_quo5r"]
+script = ExtResource("6_42wsl")
+conversation_id = &"volt_after"
+default_speaker = ExtResource("14_7w7oi")
+default_dialogue_box = ExtResource("12_wk65j")
+default_placement = SubResource("Resource_u26ot")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_7d71r"), SubResource("Resource_by83c")])
+event_payload = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_cykot"]
+font = ExtResource("4_uf1d6")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.1, 0.07, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_1y7bq"]
+script = ExtResource("9_fwqju")
+text = "BOOTING… OK."
+event_payload = null
+line_id = &"archive_log_1"
+
+[sub_resource type="Resource" id="Resource_fry25"]
+script = ExtResource("9_fwqju")
+text = "LOG 001: WALKER PROGRAM STARTED. ENGINEER: ADA."
+event_payload = null
+line_id = &"archive_log_2"
+
+[sub_resource type="Resource" id="Resource_wll5e"]
+script = ExtResource("9_fwqju")
+text = "LOG 214: CRAB ACTIVITY RISING. COIN VAULT OPEN."
+event_payload = null
+line_id = &"archive_log_3"
+
+[sub_resource type="Resource" id="Resource_x20jv"]
+script = ExtResource("9_fwqju")
+text = "LOG 215: VISITOR CARRIES {{coins_have}} COINS."
+event_id = &"archive_read"
+event_payload = null
+line_id = &"archive_log_4"
+
+[sub_resource type="Resource" id="Resource_a7xk2"]
+script = ExtResource("9_fwqju")
+text = "END OF LOG."
+event_payload = null
+line_id = &"archive_log_5"
+
+[sub_resource type="Resource" id="Resource_2bwiv"]
+script = ExtResource("6_42wsl")
+conversation_id = &"archive_log"
+default_speaker = ExtResource("16_d15mc")
+default_dialogue_box = ExtResource("15_4vqn8")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_1y7bq"), SubResource("Resource_fry25"), SubResource("Resource_wll5e"), SubResource("Resource_x20jv"), SubResource("Resource_a7xk2")])
+event_payload = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_meppk"]
+font = ExtResource("4_uf1d6")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.1, 0.07, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_8wwvu"]
+script = ExtResource("9_fwqju")
+text = "The lanterns on this cliff go out at midnight."
+event_payload = null
+line_id = &"noct_hello_1"
+
+[sub_resource type="Resource" id="Resource_xaoed"]
+script = ExtResource("9_fwqju")
+text = "I light them again, one by one. Somebody has to."
+event_payload = null
+line_id = &"noct_hello_2"
+
+[sub_resource type="Resource" id="Resource_vb1wq"]
+script = ExtResource("9_fwqju")
+text = "Walk safe, {{player_name}}. Stay close to the light."
+event_id = &"traveller_met"
+event_payload = null
+line_id = &"noct_hello_3"
+
+[sub_resource type="Resource" id="Resource_auuqi"]
+script = ExtResource("6_42wsl")
+conversation_id = &"noct_hello"
+default_speaker = ExtResource("18_dka6b")
+default_dialogue_box = ExtResource("17_i5bej")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_8wwvu"), SubResource("Resource_xaoed"), SubResource("Resource_vb1wq")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_aib7w"]
+script = ExtResource("9_fwqju")
+text = "Still lit. Good."
+event_payload = null
+line_id = &"noct_again_1"
+
+[sub_resource type="Resource" id="Resource_bkcrg"]
+script = ExtResource("6_42wsl")
+conversation_id = &"noct_again"
+default_speaker = ExtResource("18_dka6b")
+default_dialogue_box = ExtResource("17_i5bej")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_aib7w")])
+event_payload = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_qlcva"]
+font = ExtResource("4_uf1d6")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.1, 0.07, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_x5xpc"]
+script = ExtResource("9_fwqju")
+text = "Oh, hello! Don't forget to eat something before you go!"
+event_payload = null
+line_id = &"fern_hello_1"
+
+[sub_resource type="Resource" id="Resource_ialmf"]
+script = ExtResource("9_fwqju")
+text = "I left a note for Ada too. She never eats when she's fixing things."
+event_payload = null
+line_id = &"fern_hello_2"
+
+[sub_resource type="Resource" id="Resource_tbg53"]
+script = ExtResource("9_fwqju")
+text = "Here, take a bolt biscuit. Crunchy!"
+event_id = &"traveller_met"
+event_payload = null
+line_id = &"fern_hello_3"
+
+[sub_resource type="Resource" id="Resource_nigie"]
+script = ExtResource("6_42wsl")
+conversation_id = &"fern_hello"
+default_speaker = ExtResource("20_tqmv7")
+default_dialogue_box = ExtResource("19_bcdd7")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_x5xpc"), SubResource("Resource_ialmf"), SubResource("Resource_tbg53")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_ruq75"]
+script = ExtResource("9_fwqju")
+text = "Back for another biscuit? Ha! Soon."
+event_payload = null
+line_id = &"fern_again_1"
+
+[sub_resource type="Resource" id="Resource_wg8m8"]
+script = ExtResource("6_42wsl")
+conversation_id = &"fern_again"
+default_speaker = ExtResource("20_tqmv7")
+default_dialogue_box = ExtResource("19_bcdd7")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_ruq75")])
+event_payload = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_qw5px"]
+font = ExtResource("4_uf1d6")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.1, 0.07, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_cva8g"]
+script = ExtResource("9_fwqju")
+text = "Hear ye! The Court of the Valley greets a new walker."
+event_payload = null
+line_id = &"herald_hello_1"
+
+[sub_resource type="Resource" id="Resource_v7uat"]
+script = ExtResource("9_fwqju")
+text = "Will you show the court your respect?"
+event_id = &"herald_greet"
+event_payload = {
+"branches": ["herald_bow", "herald_wave"],
+"options": ["Bow.", "Wave."]
+}
+event_blocking = true
+line_id = &"herald_hello_2"
+
+[sub_resource type="Resource" id="Resource_xmelo"]
+script = ExtResource("6_42wsl")
+conversation_id = &"herald_hello"
+default_speaker = ExtResource("22_mgro6")
+default_dialogue_box = ExtResource("21_2osg6")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_cva8g"), SubResource("Resource_v7uat")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_clwux"]
+script = ExtResource("9_fwqju")
+text = "A fine bow! The court is pleased."
+event_payload = null
+line_id = &"herald_bow_1"
+
+[sub_resource type="Resource" id="Resource_nnlcy"]
+script = ExtResource("9_fwqju")
+text = "Your name, {{player_name}}, is written in the valley's book."
+event_id = &"traveller_met"
+event_payload = null
+line_id = &"herald_bow_2"
+
+[sub_resource type="Resource" id="Resource_5jbna"]
+script = ExtResource("6_42wsl")
+conversation_id = &"herald_bow"
+default_speaker = ExtResource("22_mgro6")
+default_dialogue_box = ExtResource("21_2osg6")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_clwux"), SubResource("Resource_nnlcy")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_let26"]
+script = ExtResource("9_fwqju")
+text = "A… wave. How very modern."
+event_payload = null
+line_id = &"herald_wave_1"
+
+[sub_resource type="Resource" id="Resource_tn1m3"]
+script = ExtResource("9_fwqju")
+text = "The court will allow it. This once."
+event_id = &"traveller_met"
+event_payload = null
+line_id = &"herald_wave_2"
+
+[sub_resource type="Resource" id="Resource_v3ou1"]
+script = ExtResource("6_42wsl")
+conversation_id = &"herald_wave"
+default_speaker = ExtResource("22_mgro6")
+default_dialogue_box = ExtResource("21_2osg6")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_let26"), SubResource("Resource_tn1m3")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_t84xn"]
+script = ExtResource("9_fwqju")
+text = "The court remembers you, {{player_name}}."
+event_payload = null
+line_id = &"herald_again_1"
+
+[sub_resource type="Resource" id="Resource_khvjk"]
+script = ExtResource("6_42wsl")
+conversation_id = &"herald_again"
+default_speaker = ExtResource("22_mgro6")
+default_dialogue_box = ExtResource("21_2osg6")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_t84xn")])
+event_payload = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_bqx01"]
+font = ExtResource("4_uf1d6")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.1, 0.07, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_mhx8f"]
+script = ExtResource("13_7nfyt")
+mode = 1
+follow_offset = Vector2(0, -60)
+
+[sub_resource type="Resource" id="Resource_gj457"]
+script = ExtResource("9_fwqju")
+text = "Wait, you climbed all the way up here?"
+event_payload = null
+line_id = &"pop_hello_1"
+
+[sub_resource type="Resource" id="Resource_1tjlo"]
+script = ExtResource("9_fwqju")
+text = "Most robots fall off at the second jump! Respect!"
+event_id = &"traveller_met"
+event_payload = null
+line_id = &"pop_hello_2"
+
+[sub_resource type="Resource" id="Resource_0cf8l"]
+script = ExtResource("6_42wsl")
+conversation_id = &"pop_hello"
+default_speaker = ExtResource("24_oas5f")
+default_dialogue_box = ExtResource("23_8usp3")
+default_placement = SubResource("Resource_mhx8f")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_gj457"), SubResource("Resource_1tjlo")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_avvto"]
+script = ExtResource("9_fwqju")
+text = "Still here? Still awesome!"
+event_payload = null
+line_id = &"pop_again_1"
+
+[sub_resource type="Resource" id="Resource_j5ucx"]
+script = ExtResource("6_42wsl")
+conversation_id = &"pop_again"
+default_speaker = ExtResource("24_oas5f")
+default_dialogue_box = ExtResource("23_8usp3")
+default_placement = SubResource("Resource_mhx8f")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_avvto")])
+event_payload = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_2wbhj"]
+font = ExtResource("4_uf1d6")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.1, 0.07, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_mahnl"]
+script = ExtResource("9_fwqju")
+text = "Welcome to the top of the valley, traveller!"
+event_payload = null
+line_id = &"breeze_hello_1"
+
+[sub_resource type="Resource" id="Resource_umbx6"]
+script = ExtResource("9_fwqju")
+text = "On a clear day my kites reach the clouds."
+event_payload = null
+line_id = &"breeze_hello_2"
+
+[sub_resource type="Resource" id="Resource_s38tp"]
+script = ExtResource("9_fwqju")
+text = "Today the wind's lazy. Tomorrow, maybe."
+event_id = &"traveller_met"
+event_payload = null
+line_id = &"breeze_hello_3"
+
+[sub_resource type="Resource" id="Resource_nbkoh"]
+script = ExtResource("6_42wsl")
+conversation_id = &"breeze_hello"
+default_speaker = ExtResource("26_ofbl4")
+default_dialogue_box = ExtResource("25_gp2op")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_mahnl"), SubResource("Resource_umbx6"), SubResource("Resource_s38tp")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_pbqor"]
+script = ExtResource("9_fwqju")
+text = "Feel that? Still no wind."
+event_payload = null
+line_id = &"breeze_again_1"
+
+[sub_resource type="Resource" id="Resource_pcos7"]
+script = ExtResource("6_42wsl")
+conversation_id = &"breeze_again"
+default_speaker = ExtResource("26_ofbl4")
+default_dialogue_box = ExtResource("25_gp2op")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_pbqor")])
+event_payload = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_4cg2d"]
+font = ExtResource("4_uf1d6")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.1, 0.07, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_5ie4t"]
+script = ExtResource("9_fwqju")
+text = "I sorted the seeds by colour. It seemed like the right thing to do."
+event_payload = null
+line_id = &"sorrel_hello_1"
+
+[sub_resource type="Resource" id="Resource_8ht3f"]
+script = ExtResource("9_fwqju")
+text = "Mind the flowers when you land, {{player_name}}."
+event_id = &"traveller_met"
+event_payload = null
+line_id = &"sorrel_hello_2"
+
+[sub_resource type="Resource" id="Resource_kbnj0"]
+script = ExtResource("6_42wsl")
+conversation_id = &"sorrel_hello"
+default_speaker = ExtResource("28_hqapg")
+default_dialogue_box = ExtResource("27_wfmx1")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_5ie4t"), SubResource("Resource_8ht3f")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_f4xtu"]
+script = ExtResource("9_fwqju")
+text = "The blue ones are coming up first. I knew it."
+event_payload = null
+line_id = &"sorrel_again_1"
+
+[sub_resource type="Resource" id="Resource_1h428"]
+script = ExtResource("6_42wsl")
+conversation_id = &"sorrel_again"
+default_speaker = ExtResource("28_hqapg")
+default_dialogue_box = ExtResource("27_wfmx1")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_f4xtu")])
+event_payload = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_urvw4"]
+font = ExtResource("4_uf1d6")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.1, 0.07, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_oug86"]
+script = ExtResource("9_fwqju")
+text = "You want the shortcut? Then keep up."
+event_payload = null
+line_id = &"dash_hello_1"
+
+[sub_resource type="Resource" id="Resource_p0kbt"]
+script = ExtResource("9_fwqju")
+text = "…Too slow. Next time."
+event_id = &"traveller_met"
+event_payload = null
+line_id = &"dash_hello_2"
+
+[sub_resource type="Resource" id="Resource_2frf5"]
+script = ExtResource("6_42wsl")
+conversation_id = &"dash_hello"
+default_speaker = ExtResource("30_cyv58")
+default_dialogue_box = ExtResource("29_d0u0a")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_oug86"), SubResource("Resource_p0kbt")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_y66uo"]
+script = ExtResource("9_fwqju")
+text = "Still too slow."
+event_payload = null
+line_id = &"dash_again_1"
+
+[sub_resource type="Resource" id="Resource_42byx"]
+script = ExtResource("6_42wsl")
+conversation_id = &"dash_again"
+default_speaker = ExtResource("30_cyv58")
+default_dialogue_box = ExtResource("29_d0u0a")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_y66uo")])
+event_payload = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_henlx"]
+font = ExtResource("4_uf1d6")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.1, 0.07, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_wj21w"]
+script = ExtResource("9_fwqju")
+text = "PLAYER 2 HAS JOINED."
+event_payload = null
+line_id = &"pixel_hello_1"
+
+[sub_resource type="Resource" id="Resource_akert"]
+script = ExtResource("9_fwqju")
+text = "HIGH SCORE: {{coins_have}} COINS."
+event_payload = null
+line_id = &"pixel_hello_2"
+
+[sub_resource type="Resource" id="Resource_yb0la"]
+script = ExtResource("9_fwqju")
+text = "INSERT COIN TO CONTINUE."
+event_id = &"traveller_met"
+event_payload = null
+line_id = &"pixel_hello_3"
+
+[sub_resource type="Resource" id="Resource_iudgt"]
+script = ExtResource("6_42wsl")
+conversation_id = &"pixel_hello"
+default_speaker = ExtResource("32_423dm")
+default_dialogue_box = ExtResource("31_2hk6j")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_wj21w"), SubResource("Resource_akert"), SubResource("Resource_yb0la")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_tedvp"]
+script = ExtResource("9_fwqju")
+text = "PRESS START."
+event_payload = null
+line_id = &"pixel_again_1"
+
+[sub_resource type="Resource" id="Resource_mn6dk"]
+script = ExtResource("6_42wsl")
+conversation_id = &"pixel_again"
+default_speaker = ExtResource("32_423dm")
+default_dialogue_box = ExtResource("31_2hk6j")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_tedvp")])
+event_payload = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_8jq2g"]
+font = ExtResource("4_uf1d6")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.1, 0.07, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_u4cfm"]
+script = ExtResource("9_fwqju")
+text = "Signal's clean up here."
+event_payload = null
+line_id = &"flux_hello_1"
+
+[sub_resource type="Resource" id="Resource_2j6kw"]
+script = ExtResource("9_fwqju")
+text = "If you ever need a parcel across the valley, ping me."
+event_id = &"traveller_met"
+event_payload = null
+line_id = &"flux_hello_2"
+
+[sub_resource type="Resource" id="Resource_eo7iw"]
+script = ExtResource("6_42wsl")
+conversation_id = &"flux_hello"
+default_speaker = ExtResource("34_8h2hd")
+default_dialogue_box = ExtResource("33_mw81j")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_u4cfm"), SubResource("Resource_2j6kw")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_d55og"]
+script = ExtResource("9_fwqju")
+text = "No parcels today. Ping me later."
+event_payload = null
+line_id = &"flux_again_1"
+
+[sub_resource type="Resource" id="Resource_1oc04"]
+script = ExtResource("6_42wsl")
+conversation_id = &"flux_again"
+default_speaker = ExtResource("34_8h2hd")
+default_dialogue_box = ExtResource("33_mw81j")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_d55og")])
+event_payload = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_uuqof"]
+font = ExtResource("4_uf1d6")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.1, 0.07, 0.12, 1)
+
+[sub_resource type="Resource" id="Resource_lr5tw"]
+script = ExtResource("13_7nfyt")
+screen_spot = 1
+screen_margin = Vector2(32, 48)
+
+[sub_resource type="Resource" id="Resource_mj5ky"]
+script = ExtResource("9_fwqju")
+text = "SCAN COMPLETE."
+event_payload = null
+line_id = &"scout_hello_1"
+
+[sub_resource type="Resource" id="Resource_tqo2c"]
+script = ExtResource("9_fwqju")
+text = "CRAB SIGNALS IN THE VALLEY: {{crabs_left}}."
+event_payload = null
+line_id = &"scout_hello_2"
+
+[sub_resource type="Resource" id="Resource_s0qc7"]
+script = ExtResource("9_fwqju")
+text = "WALKER SIGNALS: ONE. IT IS YOU."
+event_id = &"traveller_met"
+event_payload = null
+line_id = &"scout_hello_3"
+
+[sub_resource type="Resource" id="Resource_ujo6n"]
+script = ExtResource("6_42wsl")
+conversation_id = &"scout_hello"
+default_speaker = ExtResource("36_ke104")
+default_dialogue_box = ExtResource("35_6xloe")
+default_placement = SubResource("Resource_lr5tw")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_mj5ky"), SubResource("Resource_tqo2c"), SubResource("Resource_s0qc7")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_if1jj"]
+script = ExtResource("9_fwqju")
+text = "SCANNING… NOTHING NEW."
+event_payload = null
+line_id = &"scout_again_1"
+
+[sub_resource type="Resource" id="Resource_pt0t2"]
+script = ExtResource("6_42wsl")
+conversation_id = &"scout_again"
+default_speaker = ExtResource("36_ke104")
+default_dialogue_box = ExtResource("35_6xloe")
+default_placement = SubResource("Resource_lr5tw")
+lines = Array[ExtResource("9_fwqju")]([SubResource("Resource_if1jj")])
+event_payload = null
+
+[sub_resource type="Resource" id="Resource_qy03n"]
+script = ExtResource("13_7nfyt")
+screen_spot = 1
+screen_margin = Vector2(32, 64)
+box_size = Vector2(620, 0)
+
+[node name="PlatformerQuest" type="Node2D" unique_id=1615945985]
+texture_filter = 1
+script = ExtResource("1_25552")
+
+[node name="Level" type="Node2D" parent="." unique_id=312260147 instance=ExtResource("2_qacbh")]
+process_mode = 1
+
+[node name="NPCs" type="Node2D" parent="." unique_id=868053970]
+z_index = 2
+
+[node name="Ada" type="Node2D" parent="NPCs" unique_id=1148695568]
+unique_name_in_owner = true
+position = Vector2(230, 650)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs/Ada" unique_id=389652468]
+modulate = Color(1, 0.78, 0.55, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_dq2ur")
+hframes = 8
+vframes = 8
+frame = 30
+
+[node name="Prompt" type="Label" parent="NPCs/Ada" unique_id=226260701]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -74.0
+text = "E  TALK"
+label_settings = SubResource("LabelSettings_8ti06")
+horizontal_alignment = 1
+
+[node name="TalkKit" type="Node" parent="NPCs/Ada" unique_id=683668560 node_paths=PackedStringArray("conversation_target")]
+script = ExtResource("5_6ynva")
+conversations = Array[ExtResource("6_42wsl")]([SubResource("Resource_yqr0q"), SubResource("Resource_cppx5"), SubResource("Resource_vr75o"), SubResource("Resource_61yjx"), SubResource("Resource_rgmwj"), SubResource("Resource_h8yta"), SubResource("Resource_q5q3u"), SubResource("Resource_6wusw"), SubResource("Resource_day7m"), SubResource("Resource_45fkl")])
+speakers = Array[ExtResource("10_a7gg7")]([ExtResource("8_phq31")])
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("7_16psp")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Volt" type="Node2D" parent="NPCs" unique_id=533344446]
+unique_name_in_owner = true
+position = Vector2(1180, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs/Volt" unique_id=268047421]
+modulate = Color(0.85, 0.62, 1, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_dq2ur")
+hframes = 8
+vframes = 8
+frame = 30
+
+[node name="Prompt" type="Label" parent="NPCs/Volt" unique_id=247967901]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -74.0
+text = "E  TALK"
+label_settings = SubResource("LabelSettings_w5qo1")
+horizontal_alignment = 1
+
+[node name="TalkKit" type="Node" parent="NPCs/Volt" unique_id=68762924 node_paths=PackedStringArray("conversation_target")]
+script = ExtResource("5_6ynva")
+conversations = Array[ExtResource("6_42wsl")]([SubResource("Resource_2nrs4"), SubResource("Resource_772g5"), SubResource("Resource_i8365"), SubResource("Resource_slpqc"), SubResource("Resource_ffc45"), SubResource("Resource_quo5r")])
+speakers = Array[ExtResource("10_a7gg7")]([ExtResource("14_7w7oi")])
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("12_wk65j")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Archive" type="Node2D" parent="NPCs" unique_id=1499159025]
+unique_name_in_owner = true
+position = Vector2(-520, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs/Archive" unique_id=2085435701]
+modulate = Color(0.55, 0.9, 0.6, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_dq2ur")
+hframes = 8
+vframes = 8
+frame = 42
+
+[node name="Prompt" type="Label" parent="NPCs/Archive" unique_id=582229337]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -74.0
+text = "E  TALK"
+label_settings = SubResource("LabelSettings_cykot")
+horizontal_alignment = 1
+
+[node name="TalkKit" type="Node" parent="NPCs/Archive" unique_id=581059018 node_paths=PackedStringArray("conversation_target")]
+script = ExtResource("5_6ynva")
+conversations = Array[ExtResource("6_42wsl")]([SubResource("Resource_2bwiv")])
+speakers = Array[ExtResource("10_a7gg7")]([ExtResource("16_d15mc")])
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("15_4vqn8")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Travellers" type="Node2D" parent="NPCs" unique_id=160849509]
+unique_name_in_owner = true
+
+[node name="Noct" type="Node2D" parent="NPCs/Travellers" unique_id=1130862287]
+position = Vector2(-670, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs/Travellers/Noct" unique_id=1072097848]
+modulate = Color(0.62, 0.68, 1, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_dq2ur")
+hframes = 8
+vframes = 8
+frame = 32
+
+[node name="Prompt" type="Label" parent="NPCs/Travellers/Noct" unique_id=1447836537]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -74.0
+text = "E  TALK"
+label_settings = SubResource("LabelSettings_meppk")
+horizontal_alignment = 1
+
+[node name="TalkKit" type="Node" parent="NPCs/Travellers/Noct" unique_id=1578414687 node_paths=PackedStringArray("conversation_target")]
+script = ExtResource("5_6ynva")
+conversations = Array[ExtResource("6_42wsl")]([SubResource("Resource_auuqi"), SubResource("Resource_bkcrg")])
+speakers = Array[ExtResource("10_a7gg7")]([ExtResource("18_dka6b")])
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("17_i5bej")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Fern" type="Node2D" parent="NPCs/Travellers" unique_id=99158997]
+position = Vector2(-330, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs/Travellers/Fern" unique_id=1267648742]
+modulate = Color(1, 0.86, 0.6, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_dq2ur")
+hframes = 8
+vframes = 8
+frame = 32
+
+[node name="Prompt" type="Label" parent="NPCs/Travellers/Fern" unique_id=135585907]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -74.0
+text = "E  TALK"
+label_settings = SubResource("LabelSettings_qlcva")
+horizontal_alignment = 1
+
+[node name="TalkKit" type="Node" parent="NPCs/Travellers/Fern" unique_id=1061802060 node_paths=PackedStringArray("conversation_target")]
+script = ExtResource("5_6ynva")
+conversations = Array[ExtResource("6_42wsl")]([SubResource("Resource_nigie"), SubResource("Resource_wg8m8")])
+speakers = Array[ExtResource("10_a7gg7")]([ExtResource("20_tqmv7")])
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("19_bcdd7")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Herald" type="Node2D" parent="NPCs/Travellers" unique_id=531892168]
+position = Vector2(-60, 620)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs/Travellers/Herald" unique_id=726412648]
+modulate = Color(1, 0.85, 0.35, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_dq2ur")
+hframes = 8
+vframes = 8
+frame = 32
+
+[node name="Prompt" type="Label" parent="NPCs/Travellers/Herald" unique_id=139251119]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -74.0
+text = "E  TALK"
+label_settings = SubResource("LabelSettings_qw5px")
+horizontal_alignment = 1
+
+[node name="TalkKit" type="Node" parent="NPCs/Travellers/Herald" unique_id=1637197714 node_paths=PackedStringArray("conversation_target")]
+script = ExtResource("5_6ynva")
+conversations = Array[ExtResource("6_42wsl")]([SubResource("Resource_xmelo"), SubResource("Resource_5jbna"), SubResource("Resource_v3ou1"), SubResource("Resource_khvjk")])
+speakers = Array[ExtResource("10_a7gg7")]([ExtResource("22_mgro6")])
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("21_2osg6")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Pop" type="Node2D" parent="NPCs/Travellers" unique_id=429891211]
+position = Vector2(200, 458)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs/Travellers/Pop" unique_id=400486291]
+modulate = Color(1, 0.55, 0.6, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_dq2ur")
+hframes = 8
+vframes = 8
+frame = 32
+
+[node name="Prompt" type="Label" parent="NPCs/Travellers/Pop" unique_id=1404961276]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -74.0
+text = "E  TALK"
+label_settings = SubResource("LabelSettings_bqx01")
+horizontal_alignment = 1
+
+[node name="TalkKit" type="Node" parent="NPCs/Travellers/Pop" unique_id=1322116010 node_paths=PackedStringArray("conversation_target")]
+script = ExtResource("5_6ynva")
+conversations = Array[ExtResource("6_42wsl")]([SubResource("Resource_0cf8l"), SubResource("Resource_j5ucx")])
+speakers = Array[ExtResource("10_a7gg7")]([ExtResource("24_oas5f")])
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("23_8usp3")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Breeze" type="Node2D" parent="NPCs/Travellers" unique_id=1375430950]
+position = Vector2(260, 74)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs/Travellers/Breeze" unique_id=53027240]
+modulate = Color(0.6, 0.92, 1, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_dq2ur")
+hframes = 8
+vframes = 8
+frame = 32
+
+[node name="Prompt" type="Label" parent="NPCs/Travellers/Breeze" unique_id=848493982]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -74.0
+text = "E  TALK"
+label_settings = SubResource("LabelSettings_2wbhj")
+horizontal_alignment = 1
+
+[node name="TalkKit" type="Node" parent="NPCs/Travellers/Breeze" unique_id=983828243 node_paths=PackedStringArray("conversation_target")]
+script = ExtResource("5_6ynva")
+conversations = Array[ExtResource("6_42wsl")]([SubResource("Resource_nbkoh"), SubResource("Resource_pcos7")])
+speakers = Array[ExtResource("10_a7gg7")]([ExtResource("26_ofbl4")])
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("25_gp2op")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Sorrel" type="Node2D" parent="NPCs/Travellers" unique_id=1642033191]
+position = Vector2(420, 650)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs/Travellers/Sorrel" unique_id=1271846343]
+modulate = Color(0.75, 1, 0.65, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_dq2ur")
+hframes = 8
+vframes = 8
+frame = 32
+
+[node name="Prompt" type="Label" parent="NPCs/Travellers/Sorrel" unique_id=1875262748]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -74.0
+text = "E  TALK"
+label_settings = SubResource("LabelSettings_4cg2d")
+horizontal_alignment = 1
+
+[node name="TalkKit" type="Node" parent="NPCs/Travellers/Sorrel" unique_id=586409217 node_paths=PackedStringArray("conversation_target")]
+script = ExtResource("5_6ynva")
+conversations = Array[ExtResource("6_42wsl")]([SubResource("Resource_kbnj0"), SubResource("Resource_1h428")])
+speakers = Array[ExtResource("10_a7gg7")]([ExtResource("28_hqapg")])
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("27_wfmx1")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Dash" type="Node2D" parent="NPCs/Travellers" unique_id=118024331]
+position = Vector2(660, 650)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs/Travellers/Dash" unique_id=1015903164]
+modulate = Color(1, 0.45, 0.35, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_dq2ur")
+hframes = 8
+vframes = 8
+frame = 32
+
+[node name="Prompt" type="Label" parent="NPCs/Travellers/Dash" unique_id=1526664287]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -74.0
+text = "E  TALK"
+label_settings = SubResource("LabelSettings_urvw4")
+horizontal_alignment = 1
+
+[node name="TalkKit" type="Node" parent="NPCs/Travellers/Dash" unique_id=347123886 node_paths=PackedStringArray("conversation_target")]
+script = ExtResource("5_6ynva")
+conversations = Array[ExtResource("6_42wsl")]([SubResource("Resource_2frf5"), SubResource("Resource_42byx")])
+speakers = Array[ExtResource("10_a7gg7")]([ExtResource("30_cyv58")])
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("29_d0u0a")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Pixel" type="Node2D" parent="NPCs/Travellers" unique_id=867868885]
+position = Vector2(480, 202)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs/Travellers/Pixel" unique_id=1919614519]
+modulate = Color(1, 1, 0.5, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_dq2ur")
+hframes = 8
+vframes = 8
+frame = 32
+
+[node name="Prompt" type="Label" parent="NPCs/Travellers/Pixel" unique_id=1535236565]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -74.0
+text = "E  TALK"
+label_settings = SubResource("LabelSettings_henlx")
+horizontal_alignment = 1
+
+[node name="TalkKit" type="Node" parent="NPCs/Travellers/Pixel" unique_id=1879904875 node_paths=PackedStringArray("conversation_target")]
+script = ExtResource("5_6ynva")
+conversations = Array[ExtResource("6_42wsl")]([SubResource("Resource_iudgt"), SubResource("Resource_mn6dk")])
+speakers = Array[ExtResource("10_a7gg7")]([ExtResource("32_423dm")])
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("31_2hk6j")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Flux" type="Node2D" parent="NPCs/Travellers" unique_id=1595950870]
+position = Vector2(960, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs/Travellers/Flux" unique_id=979071240]
+modulate = Color(1, 0.5, 0.95, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_dq2ur")
+hframes = 8
+vframes = 8
+frame = 32
+
+[node name="Prompt" type="Label" parent="NPCs/Travellers/Flux" unique_id=1594232066]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -74.0
+text = "E  TALK"
+label_settings = SubResource("LabelSettings_8jq2g")
+horizontal_alignment = 1
+
+[node name="TalkKit" type="Node" parent="NPCs/Travellers/Flux" unique_id=851425436 node_paths=PackedStringArray("conversation_target")]
+script = ExtResource("5_6ynva")
+conversations = Array[ExtResource("6_42wsl")]([SubResource("Resource_eo7iw"), SubResource("Resource_1oc04")])
+speakers = Array[ExtResource("10_a7gg7")]([ExtResource("34_8h2hd")])
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("33_mw81j")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Scout" type="Node2D" parent="NPCs/Travellers" unique_id=1002684726]
+position = Vector2(1350, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPCs/Travellers/Scout" unique_id=2037862513]
+modulate = Color(0.5, 1, 0.85, 1)
+position = Vector2(0, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_dq2ur")
+hframes = 8
+vframes = 8
+frame = 32
+
+[node name="Prompt" type="Label" parent="NPCs/Travellers/Scout" unique_id=1166932078]
+visible = false
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 40.0
+offset_bottom = -74.0
+text = "E  TALK"
+label_settings = SubResource("LabelSettings_uuqof")
+horizontal_alignment = 1
+
+[node name="TalkKit" type="Node" parent="NPCs/Travellers/Scout" unique_id=1929562237 node_paths=PackedStringArray("conversation_target")]
+script = ExtResource("5_6ynva")
+conversations = Array[ExtResource("6_42wsl")]([SubResource("Resource_ujo6n"), SubResource("Resource_pt0t2")])
+speakers = Array[ExtResource("10_a7gg7")]([ExtResource("36_ke104")])
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("35_6xloe")])
+conversation_target = NodePath("..")
+request_face_on_start = true
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=457318108 instance=ExtResource("37_yu4hr")]
+unique_name_in_owner = true
+z_index = 3
+position = Vector2(90, 636.5)
+scale = Vector2(0.8, 0.8)
+collision_mask = 30
+floor_constant_speed = true
+platform_on_leave = 2
+script = ExtResource("38_gsgpp")
+
+[node name="Narrator" type="Node" parent="." unique_id=915485447]
+unique_name_in_owner = true
+script = ExtResource("5_6ynva")
+dialogue_boxes = Array[ExtResource("11_c2j8p")]([ExtResource("39_1bpxv")])
+quick_say_dialogue_box = ExtResource("39_1bpxv")
+quick_say_placement = SubResource("Resource_qy03n")
+request_lock_on_start = false
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=199366513]
+layer = 20
+
+[node name="Overlay" type="Control" parent="HUD" unique_id=1521923854]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource("40_o4x0r")
+
+[node name="CoinsCounter" type="Panel" parent="HUD/Overlay" unique_id=1407430856 instance=ExtResource("41_p7ldu")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 107.0
+offset_bottom = 52.0
+scale = Vector2(1.35, 1.35)
+theme = ExtResource("40_o4x0r")
+script = ExtResource("42_h3872")
+
+[node name="QuestLabel" type="Label" parent="HUD/Overlay" unique_id=1306823459]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 76.0
+offset_right = 16.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_outline_color = Color(0.1, 0.07, 0.12, 1)
+theme_override_constants/outline_size = 6
+
+[node name="Hint" type="Label" parent="HUD/Overlay" unique_id=214118742]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -36.0
+offset_right = 300.0
+offset_bottom = -12.0
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_outline_color = Color(0.1, 0.07, 0.12, 1)
+theme_override_constants/outline_size = 6
+text = "A/D  MOVE     SPACE  JUMP     E  TALK"
+horizontal_alignment = 1
+
+[node name="BoxLabel" type="Label" parent="HUD/Overlay" unique_id=1350264323]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -420.0
+offset_top = 14.0
+offset_right = -16.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(1, 0.9, 0.55, 1)
+theme_override_colors/font_outline_color = Color(0.1, 0.07, 0.12, 1)
+theme_override_constants/outline_size = 6
+horizontal_alignment = 2
+
+[node name="ChoiceMenu" type="PanelContainer" parent="HUD/Overlay" unique_id=1945367844]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -40.0
+offset_right = -40.0
+offset_bottom = 40.0
+grow_vertical = 2
+script = ExtResource("43_5abwv")
+
+[node name="List" type="VBoxContainer" parent="HUD/Overlay/ChoiceMenu" unique_id=1786369272]
+layout_mode = 2
+theme_override_constants/separation = 6

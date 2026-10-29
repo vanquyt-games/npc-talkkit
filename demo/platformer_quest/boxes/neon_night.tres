@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="TalkBoxTemplate" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_layer.gd" id="1_xeogr"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/neon_night/Rajdhani-Medium.ttf" id="2_n8eyu"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/neon_night/Orbitron.ttf" id="3_oqjlv"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="4_55ddf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th2ga"]
+bg_color = Color(0.03, 0.02, 0.07, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.24, 0.72, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(1, 0.24, 0.72, 0.45)
+shadow_size = 16
+
+[sub_resource type="Resource" id="Resource_dhh2x"]
+script = ExtResource("1_xeogr")
+name = "Base Appearance"
+visual_source = 0
+style = SubResource("StyleBoxFlat_th2ga")
+padding = Vector4(22, 16, 22, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3yac"]
+bg_color = Color(0.3, 0.95, 1, 0.08)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.95, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(0.3, 0.95, 1, 0.35)
+shadow_size = 10
+
+[sub_resource type="Resource" id="Resource_h8mga"]
+script = ExtResource("1_xeogr")
+name = "Portrait Frame"
+slot = 2
+visual_source = 0
+style = SubResource("StyleBoxFlat_e3yac")
+padding_mode = 1
+
+[sub_resource type="FontVariation" id="FontVariation_1vu44"]
+base_font = ExtResource("3_oqjlv")
+variation_opentype = {
+2003265652: 700
+}
+spacing_glyph = 1
+
+[resource]
+resource_name = "Neon Night"
+script = ExtResource("4_55ddf")
+base = SubResource("Resource_dhh2x")
+font = ExtResource("2_n8eyu")
+text_size = 22
+text_color = Color(0.95, 0.92, 1, 1)
+name_font = SubResource("FontVariation_1vu44")
+name_size = 17
+name_color = Color(0.3, 0.95, 1, 1)
+visual_size = Vector2(100, 100)
+visual_clip_to_frame = true
+continue_text = "▶"
+continue_motion = 2
+layers = Array[ExtResource("1_xeogr")]([SubResource("Resource_h8mga")])

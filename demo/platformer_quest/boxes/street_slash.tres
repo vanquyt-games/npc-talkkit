@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="TalkBoxTemplate" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_layer.gd" id="1_xlf0x"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/street_slash/Oswald.ttf" id="2_0xu8x"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/street_slash/Anton-Regular.ttf" id="3_6bxyj"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="4_2yn2v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2u7x"]
+bg_color = Color(0.86, 0.07, 0.13, 1)
+skew = Vector2(-0.18, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.04, 0.03, 0.04, 1)
+shadow_color = Color(0.04, 0.03, 0.04, 1)
+shadow_size = 1
+shadow_offset = Vector2(8, 8)
+anti_aliasing = false
+
+[sub_resource type="Resource" id="Resource_flr0a"]
+script = ExtResource("1_xlf0x")
+name = "Base Appearance"
+visual_source = 0
+style = SubResource("StyleBoxFlat_q2u7x")
+padding = Vector4(34, 22, 34, 18)
+
+[sub_resource type="FontVariation" id="FontVariation_a8duw"]
+base_font = ExtResource("2_0xu8x")
+variation_opentype = {
+2003265652: 500
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hxnf"]
+bg_color = Color(1, 1, 1, 1)
+skew = Vector2(-0.18, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.04, 0.03, 0.04, 1)
+anti_aliasing = false
+
+[sub_resource type="Resource" id="Resource_3pegk"]
+script = ExtResource("1_xlf0x")
+name = "Name Box"
+slot = 1
+visual_source = 0
+style = SubResource("StyleBoxFlat_3hxnf")
+padding_mode = 1
+padding = Vector4(18, 2, 18, 2)
+
+[sub_resource type="FontVariation" id="FontVariation_pap3t"]
+base_font = ExtResource("3_6bxyj")
+spacing_glyph = 2
+
+[resource]
+resource_name = "Street Slash"
+script = ExtResource("4_2yn2v")
+base = SubResource("Resource_flr0a")
+font = SubResource("FontVariation_a8duw")
+text_size = 23
+name_placement = 1
+name_offset = Vector2(26, 0)
+name_font = SubResource("FontVariation_pap3t")
+name_color = Color(0.86, 0.07, 0.13, 1)
+visual_shown = false
+continue_text = "▶"
+continue_motion = 1
+open_transition = "slide"
+transition_duration = 0.14
+layers = Array[ExtResource("1_xlf0x")]([SubResource("Resource_3pegk")])

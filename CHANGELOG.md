@@ -3,6 +3,21 @@
 All notable changes to NPC TalkKit. Versions follow the addon, not the JSON
 schema — `SCHEMA_VERSION` is tracked separately and is now `4.0`.
 
+## 2.2.0
+
+### Added
+
+- **A quest demo**, `demo/platformer_quest/`, built on the Godot 2D Platformer
+  Demo: a quest with choices from the game's own menu, a menu that loops,
+  branching on quest state in GDScript, events that hand out a reward, barks
+  through `say()` from TalkKit nodes created in code, and three box styles.
+  Ten travellers around the level each talk in one of the ten gallery boxes.
+
+### Changed
+
+- **The demos are a separate download**, `npc-talkkit-demos-<version>.zip`. The
+  addon download is now about 220 KB instead of 4.6 MB.
+
 ## 2.1.0
 
 ### Changed

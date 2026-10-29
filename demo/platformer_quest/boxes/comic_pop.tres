@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="TalkBoxTemplate" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_layer.gd" id="1_qh58g"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/comic_pop/ComicNeue-Bold.ttf" id="2_n8uuc"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/comic_pop/Bangers-Regular.ttf" id="3_p35hy"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="4_l4vve"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8by02"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.06, 0.06, 0.08, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.06, 0.06, 0.08, 1)
+shadow_size = 1
+shadow_offset = Vector2(6, 6)
+
+[sub_resource type="Resource" id="Resource_p0vur"]
+script = ExtResource("1_qh58g")
+name = "Base Appearance"
+visual_source = 0
+style = SubResource("StyleBoxFlat_8by02")
+padding = Vector4(22, 14, 22, 16)
+
+[sub_resource type="FontVariation" id="FontVariation_gucw2"]
+base_font = ExtResource("3_p35hy")
+spacing_glyph = 1
+
+[resource]
+resource_name = "Comic Pop"
+script = ExtResource("4_l4vve")
+base = SubResource("Resource_p0vur")
+font = ExtResource("2_n8uuc")
+text_color = Color(0.08, 0.08, 0.1, 1)
+text_min_size = Vector2(380, 40)
+name_font = SubResource("FontVariation_gucw2")
+name_color = Color(0.9, 0.12, 0.18, 1)
+visual_shown = false
+tail_shown = true
+tail_size = 20.0
+continue_shown = false
+open_transition = "scale_pop"
+transition_duration = 0.16

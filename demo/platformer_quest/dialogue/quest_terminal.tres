@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="TalkBoxTemplate" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_layer.gd" id="1_reg5u"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/godot_platformer/gui/kenney_mini_square.ttf" id="2_w8e0e"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="3_vag0p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjco6"]
+bg_color = Color(0.02, 0.04, 0.03, 0.94)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.24, 0.95, 0.44, 0.85)
+
+[sub_resource type="Resource" id="Resource_48qck"]
+script = ExtResource("1_reg5u")
+name = "Base Appearance"
+visual_source = 0
+style = SubResource("StyleBoxFlat_sjco6")
+padding = Vector4(16, 12, 16, 12)
+
+[resource]
+script = ExtResource("3_vag0p")
+base = SubResource("Resource_48qck")
+font = ExtResource("2_w8e0e")
+text_size = 18
+text_color = Color(0.56, 1, 0.66, 1)
+typewriter_speed = 18.0
+name_font = ExtResource("2_w8e0e")
+name_size = 18
+name_color = Color(0.24, 0.95, 0.44, 1)
+visual_shown = false
+continue_text = "_"
+open_transition = "none"
+close_transition = "none"
+transition_duration = 0.0

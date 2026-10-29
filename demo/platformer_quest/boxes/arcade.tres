@@ -1,0 +1,80 @@
+[gd_resource type="Resource" script_class="TalkBoxTemplate" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_layer.gd" id="1_vd0x2"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/arcade/press_start_2p.res" id="2_7qk3t"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="3_4cws6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mho3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+anti_aliasing = false
+
+[sub_resource type="Resource" id="Resource_kfis6"]
+script = ExtResource("1_vd0x2")
+name = "Base Appearance"
+visual_source = 0
+style = SubResource("StyleBoxFlat_2mho3")
+padding = Vector4(24, 22, 24, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_py460"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = -8.0
+expand_margin_top = -8.0
+expand_margin_right = -8.0
+expand_margin_bottom = -8.0
+anti_aliasing = false
+
+[sub_resource type="Resource" id="Resource_cq7kw"]
+script = ExtResource("1_vd0x2")
+name = "Inner Line"
+visual_source = 0
+style = SubResource("StyleBoxFlat_py460")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhqfr"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+anti_aliasing = false
+
+[sub_resource type="Resource" id="Resource_efhub"]
+script = ExtResource("1_vd0x2")
+name = "Portrait Frame"
+slot = 2
+visual_source = 0
+style = SubResource("StyleBoxFlat_bhqfr")
+padding_mode = 1
+
+[resource]
+resource_name = "Arcade"
+script = ExtResource("3_4cws6")
+base = SubResource("Resource_kfis6")
+font = ExtResource("2_7qk3t")
+text_size = 16
+line_spacing = 10
+typewriter_speed = 30.0
+name_font = ExtResource("2_7qk3t")
+name_size = 16
+name_color = Color(1, 0.84, 0.2, 1)
+visual_size = Vector2(96, 96)
+visual_clip_to_frame = true
+continue_motion = 2
+open_transition = "none"
+close_transition = "none"
+transition_duration = 0.0
+layers = Array[ExtResource("1_vd0x2")]([SubResource("Resource_cq7kw"), SubResource("Resource_efhub")])

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TalkSpeaker" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_speaker.gd" id="1_pxefh"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_dialogue_visual.gd" id="2_kvmk6"]
+[ext_resource type="AudioStream" path="res://demo/platformer_quest/dialogue/voice_blip_3.tres" id="3_klopq"]
+
+[resource]
+script = ExtResource("1_pxefh")
+speaker_id = &"archive"
+display_name = "ARCHIVE-7"
+voice_blip = ExtResource("3_klopq")
+voice_pitch_min = 0.7
+voice_pitch_max = 0.75

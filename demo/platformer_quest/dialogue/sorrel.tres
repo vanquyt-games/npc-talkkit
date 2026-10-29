@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TalkSpeaker" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_speaker.gd" id="1_4fwks"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_dialogue_visual.gd" id="2_q3maj"]
+[ext_resource type="Texture2D" path="res://demo/platformer_quest/dialogue/portraits/sorrel.res" id="3_ho2eg"]
+[ext_resource type="AudioStream" path="res://demo/platformer_quest/dialogue/voice_blip_1.tres" id="4_1y2ms"]
+
+[sub_resource type="Resource" id="Resource_2lo80"]
+script = ExtResource("2_q3maj")
+texture = ExtResource("3_ho2eg")
+
+[resource]
+script = ExtResource("1_4fwks")
+speaker_id = &"sorrel"
+display_name = "Sorrel · Gardener"
+visual = SubResource("Resource_2lo80")
+voice_blip = ExtResource("4_1y2ms")
+voice_pitch_min = 1.0

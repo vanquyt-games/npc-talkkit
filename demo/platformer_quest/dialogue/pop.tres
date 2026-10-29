@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TalkSpeaker" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_speaker.gd" id="1_yijpj"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_dialogue_visual.gd" id="2_jf08x"]
+[ext_resource type="Texture2D" path="res://demo/platformer_quest/dialogue/portraits/pop.res" id="3_qbh6p"]
+[ext_resource type="AudioStream" path="res://demo/platformer_quest/dialogue/voice_blip_2.tres" id="4_5rh24"]
+
+[sub_resource type="Resource" id="Resource_4o46s"]
+script = ExtResource("2_jf08x")
+texture = ExtResource("3_qbh6p")
+
+[resource]
+script = ExtResource("1_yijpj")
+speaker_id = &"pop"
+display_name = "POP!"
+visual = SubResource("Resource_4o46s")
+voice_blip = ExtResource("4_5rh24")
+voice_pitch_min = 1.25
+voice_pitch_max = 1.4

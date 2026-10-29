@@ -1,0 +1,120 @@
+[gd_resource type="Resource" script_class="TalkBoxTemplate" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_layer.gd" id="1_3fybt"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/royal_court/CrimsonText-Regular.ttf" id="2_iccq4"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/royal_court/Cinzel.ttf" id="3_vx6ob"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="4_2y1uv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvo6n"]
+bg_color = Color(0.17, 0.07, 0.2, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.86, 0.69, 0.32, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 12
+
+[sub_resource type="Resource" id="Resource_wytrj"]
+script = ExtResource("1_3fybt")
+name = "Base Appearance"
+visual_source = 0
+style = SubResource("StyleBoxFlat_nvo6n")
+padding = Vector4(28, 24, 28, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61s2l"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.86, 0.69, 0.32, 0.7)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="Resource" id="Resource_o8jo3"]
+script = ExtResource("1_3fybt")
+name = "Outer Line"
+visual_source = 0
+style = SubResource("StyleBoxFlat_61s2l")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cwh0"]
+bg_color = Color(0.86, 0.69, 0.32, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.98, 0.88, 0.6, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="Resource" id="Resource_73d41"]
+script = ExtResource("1_3fybt")
+name = "Name Box"
+slot = 1
+visual_source = 0
+style = SubResource("StyleBoxFlat_4cwh0")
+padding_mode = 1
+padding = Vector4(18, 4, 18, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fc0ca"]
+bg_color = Color(0.1, 0.04, 0.12, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.86, 0.69, 0.32, 1)
+corner_radius_top_left = 52
+corner_radius_top_right = 52
+corner_radius_bottom_right = 52
+corner_radius_bottom_left = 52
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Resource" id="Resource_ap8i0"]
+script = ExtResource("1_3fybt")
+name = "Portrait Frame"
+slot = 2
+visual_source = 0
+style = SubResource("StyleBoxFlat_fc0ca")
+padding_mode = 1
+
+[sub_resource type="FontVariation" id="FontVariation_kc8up"]
+base_font = ExtResource("3_vx6ob")
+variation_opentype = {
+2003265652: 700
+}
+spacing_glyph = 1
+
+[resource]
+resource_name = "Royal Court"
+script = ExtResource("4_2y1uv")
+base = SubResource("Resource_wytrj")
+font = ExtResource("2_iccq4")
+text_size = 23
+text_color = Color(0.97, 0.93, 0.85, 1)
+name_placement = 1
+name_align = 1
+name_font = SubResource("FontVariation_kc8up")
+name_size = 16
+name_color = Color(0.17, 0.07, 0.2, 1)
+visual_size = Vector2(104, 104)
+visual_clip_to_frame = true
+continue_text = "◆"
+continue_motion = 2
+transition_duration = 0.3
+layers = Array[ExtResource("1_3fybt")]([SubResource("Resource_o8jo3"), SubResource("Resource_73d41"), SubResource("Resource_ap8i0")])

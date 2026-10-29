@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TalkSpeaker" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_speaker.gd" id="1_jwy6m"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_dialogue_visual.gd" id="2_2v4r0"]
+[ext_resource type="Texture2D" path="res://demo/platformer_quest/dialogue/portraits/pixel.res" id="3_hdycs"]
+[ext_resource type="AudioStream" path="res://demo/platformer_quest/dialogue/voice_blip_3.tres" id="4_agrsa"]
+
+[sub_resource type="Resource" id="Resource_i3pxh"]
+script = ExtResource("2_2v4r0")
+texture = ExtResource("3_hdycs")
+
+[resource]
+script = ExtResource("1_jwy6m")
+speaker_id = &"pixel"
+display_name = "PIXEL"
+visual = SubResource("Resource_i3pxh")
+voice_blip = ExtResource("4_agrsa")
+voice_pitch_min = 1.4
+voice_pitch_max = 1.5

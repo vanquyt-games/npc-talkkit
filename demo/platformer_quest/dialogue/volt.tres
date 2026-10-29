@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TalkSpeaker" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_speaker.gd" id="1_34koa"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_dialogue_visual.gd" id="2_os45k"]
+[ext_resource type="AudioStream" path="res://demo/platformer_quest/dialogue/voice_blip_2.tres" id="3_10etx"]
+
+[resource]
+script = ExtResource("1_34koa")
+speaker_id = &"volt"
+display_name = "Volt · Scout"
+voice_blip = ExtResource("3_10etx")
+voice_pitch_min = 1.15
+voice_pitch_max = 1.3

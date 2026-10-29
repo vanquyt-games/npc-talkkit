@@ -1,0 +1,95 @@
+[gd_resource type="Resource" script_class="TalkBoxTemplate" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_layer.gd" id="1_blauh"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/midnight_glass/Nunito.ttf" id="2_04dtb"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="3_iyj6c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwlqr"]
+bg_color = Color(0.07, 0.08, 0.13, 0.78)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.16)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 18
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="Resource" id="Resource_q5wb3"]
+script = ExtResource("1_blauh")
+name = "Base Appearance"
+visual_source = 0
+style = SubResource("StyleBoxFlat_jwlqr")
+padding = Vector4(24, 22, 24, 18)
+
+[sub_resource type="FontVariation" id="FontVariation_b0536"]
+base_font = ExtResource("2_04dtb")
+variation_opentype = {
+2003265652: 500
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qk57f"]
+bg_color = Color(0.45, 0.52, 1, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Resource" id="Resource_74m5q"]
+script = ExtResource("1_blauh")
+name = "Name Box"
+slot = 1
+visual_source = 0
+style = SubResource("StyleBoxFlat_qk57f")
+padding_mode = 1
+padding = Vector4(14, 4, 14, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4v65v"]
+bg_color = Color(1, 1, 1, 0.06)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.22)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="Resource" id="Resource_fg4td"]
+script = ExtResource("1_blauh")
+name = "Portrait Frame"
+slot = 2
+visual_source = 0
+style = SubResource("StyleBoxFlat_4v65v")
+padding_mode = 1
+
+[sub_resource type="FontVariation" id="FontVariation_uqjh5"]
+base_font = ExtResource("2_04dtb")
+variation_opentype = {
+2003265652: 800
+}
+
+[resource]
+resource_name = "Midnight Glass"
+script = ExtResource("3_iyj6c")
+base = SubResource("Resource_q5wb3")
+font = SubResource("FontVariation_b0536")
+text_color = Color(0.93, 0.94, 0.98, 1)
+line_spacing = 4
+name_placement = 1
+name_offset = Vector2(20, 0)
+name_font = SubResource("FontVariation_uqjh5")
+name_size = 16
+name_color = Color(1, 1, 1, 1)
+visual_size = Vector2(104, 104)
+visual_clip_to_frame = true
+continue_motion = 1
+open_transition = "slide"
+transition_duration = 0.22
+layers = Array[ExtResource("1_blauh")]([SubResource("Resource_74m5q"), SubResource("Resource_fg4td")])

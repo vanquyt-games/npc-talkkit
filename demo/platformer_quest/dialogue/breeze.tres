@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TalkSpeaker" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_speaker.gd" id="1_rlfx4"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_dialogue_visual.gd" id="2_nrns6"]
+[ext_resource type="Texture2D" path="res://demo/platformer_quest/dialogue/portraits/breeze.res" id="3_3bjot"]
+[ext_resource type="AudioStream" path="res://demo/platformer_quest/dialogue/voice_blip_2.tres" id="4_vsw8l"]
+
+[sub_resource type="Resource" id="Resource_vln1r"]
+script = ExtResource("2_nrns6")
+texture = ExtResource("3_3bjot")
+
+[resource]
+script = ExtResource("1_rlfx4")
+speaker_id = &"breeze"
+display_name = "Breeze · Kite maker"
+visual = SubResource("Resource_vln1r")
+voice_blip = ExtResource("4_vsw8l")
+voice_pitch_min = 1.1
+voice_pitch_max = 1.2

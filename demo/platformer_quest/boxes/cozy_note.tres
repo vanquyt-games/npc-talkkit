@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="TalkBoxTemplate" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_layer.gd" id="1_moftj"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/cozy_note/PatrickHand-Regular.ttf" id="2_2kso4"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="3_0cnf2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21u60"]
+bg_color = Color(1, 0.97, 0.87, 1)
+border_width_left = 6
+border_color = Color(0.86, 0.42, 0.36, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.2, 0.12, 0.05, 0.25)
+shadow_size = 10
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="Resource" id="Resource_hro0l"]
+script = ExtResource("1_moftj")
+name = "Base Appearance"
+visual_source = 0
+style = SubResource("StyleBoxFlat_21u60")
+padding = Vector4(28, 22, 24, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5bw7"]
+bg_color = Color(1, 0.88, 0.5, 0.8)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="Resource" id="Resource_knbx5"]
+script = ExtResource("1_moftj")
+name = "Tape"
+position = 5
+depth = 1
+offset = Vector2(72, 0)
+size = Vector2(88, 22)
+visual_source = 0
+style = SubResource("StyleBoxFlat_d5bw7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncj3e"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 14.0
+shadow_color = Color(0.2, 0.12, 0.05, 0.25)
+shadow_size = 6
+shadow_offset = Vector2(1, 3)
+
+[sub_resource type="Resource" id="Resource_xcxsi"]
+script = ExtResource("1_moftj")
+name = "Portrait Frame"
+slot = 2
+visual_source = 0
+style = SubResource("StyleBoxFlat_ncj3e")
+padding_mode = 1
+
+[resource]
+resource_name = "Cozy Note"
+script = ExtResource("3_0cnf2")
+base = SubResource("Resource_hro0l")
+font = ExtResource("2_2kso4")
+text_size = 25
+text_color = Color(0.3, 0.2, 0.13, 1)
+name_font = ExtResource("2_2kso4")
+name_size = 25
+name_color = Color(0.78, 0.33, 0.27, 1)
+visual_size = Vector2(100, 100)
+visual_clip_to_frame = true
+continue_text = "~"
+continue_motion = 1
+open_transition = "scale_pop"
+transition_duration = 0.2
+layers = Array[ExtResource("1_moftj")]([SubResource("Resource_knbx5"), SubResource("Resource_xcxsi")])

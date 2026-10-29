@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TalkSpeaker" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_speaker.gd" id="1_rnc7b"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/resources/talk_dialogue_visual.gd" id="2_k86yy"]
+[ext_resource type="AudioStream" path="res://demo/platformer_quest/dialogue/voice_blip_1.tres" id="3_w6h2n"]
+
+[resource]
+script = ExtResource("1_rnc7b")
+speaker_id = &"ada"
+display_name = "Ada · Mechanic"
+voice_blip = ExtResource("3_w6h2n")
+voice_pitch_min = 1.0
+voice_pitch_max = 1.12

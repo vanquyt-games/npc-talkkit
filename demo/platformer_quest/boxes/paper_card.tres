@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="TalkBoxTemplate" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_layer.gd" id="1_5kxbc"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/paper_card/Manrope.ttf" id="2_v5ocv"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="3_8idte"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m5vk"]
+bg_color = Color(0.985, 0.98, 0.97, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.05, 0.06, 0.1, 0.22)
+shadow_size = 22
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="Resource" id="Resource_2jyo8"]
+script = ExtResource("1_5kxbc")
+name = "Base Appearance"
+visual_source = 0
+style = SubResource("StyleBoxFlat_7m5vk")
+padding = Vector4(26, 22, 26, 20)
+
+[sub_resource type="FontVariation" id="FontVariation_11y8a"]
+base_font = ExtResource("2_v5ocv")
+variation_opentype = {
+2003265652: 500
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65kvi"]
+bg_color = Color(0.93, 0.94, 0.98, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="Resource" id="Resource_1jl58"]
+script = ExtResource("1_5kxbc")
+name = "Portrait Frame"
+slot = 2
+visual_source = 0
+style = SubResource("StyleBoxFlat_65kvi")
+padding_mode = 1
+
+[sub_resource type="FontVariation" id="FontVariation_auimq"]
+base_font = ExtResource("2_v5ocv")
+variation_opentype = {
+2003265652: 800
+}
+
+[resource]
+resource_name = "Paper Card"
+script = ExtResource("3_8idte")
+base = SubResource("Resource_2jyo8")
+font = SubResource("FontVariation_11y8a")
+text_size = 19
+text_color = Color(0.16, 0.17, 0.22, 1)
+line_spacing = 4
+name_font = SubResource("FontVariation_auimq")
+name_size = 15
+name_color = Color(0.36, 0.38, 0.95, 1)
+visual_size = Vector2(96, 96)
+visual_clip_to_frame = true
+continue_motion = 1
+open_transition = "slide"
+transition_duration = 0.24
+layers = Array[ExtResource("1_5kxbc")]([SubResource("Resource_1jl58")])

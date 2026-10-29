@@ -159,6 +159,23 @@ show:
   draws no name and no face.
 - **Rich text**, in both of the above.
 
+### Quest demo
+
+```
+demo/platformer_quest/platformer_quest.tscn
+```
+
+A small quest on top of the Godot 2D Platformer Demo. Ada asks for coins and
+pays with a blaster, Volt answers from a menu that loops until you say bye, an
+old archive prints its log in a terminal box, and the crabs mutter as you pass.
+The choices use the game's own menu: a blocking line carries its options and
+the conversation each one leads to, and the script answers with `play()`. Which
+conversation an NPC starts is a plain `match` on the quest state. Ten
+travellers around the level each talk in a different box from the
+[box gallery](https://talkkit.vanquyt.com/guide/box-gallery), with the robot's
+face as their portrait. See
+[`demo/platformer_quest/README.md`](demo/platformer_quest/README.md).
+
 ## Links
 
 - Product page: https://vanquyt.com/talkkit
@@ -185,8 +202,11 @@ is a short map of the internals.
 MIT. See [`LICENSE`](LICENSE). Use it, change it, ship it in your games, commercial
 or not.
 
-Both demos ship in the package. Their third-party artwork — the ground tiles from
+The demos are a separate download, `npc-talkkit-demos-<version>.zip`, so the
+addon stays small. The forest demo's third-party artwork — the ground tiles from
 Ansimuz's SunnyLand Forest of Illusion and the Sunny Land characters — is CC0 or
 public domain, and stays under its creators' terms rather than the MIT licence.
 Each pack's licence and attribution sit beside it under
-`demo/platformer_showcase/assets/third_party/`.
+`demo/platformer_showcase/assets/third_party/`. The quest demo is built on the
+Godot 2D Platformer Demo, MIT licensed by the Godot Engine contributors; its
+licence and the list of changes are in `demo/platformer_quest/godot_platformer/`.

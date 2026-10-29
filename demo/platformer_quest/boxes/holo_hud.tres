@@ -1,0 +1,124 @@
+[gd_resource type="Resource" script_class="TalkBoxTemplate" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_layer.gd" id="1_ui67p"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/holo_hud/ShareTechMono-Regular.ttf" id="2_kmy5h"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="3_if52i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvrre"]
+bg_color = Color(0.02, 0.13, 0.17, 0.72)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.36, 0.92, 1, 0.35)
+anti_aliasing = false
+
+[sub_resource type="Resource" id="Resource_c3bmu"]
+script = ExtResource("1_ui67p")
+name = "Base Appearance"
+visual_source = 0
+style = SubResource("StyleBoxFlat_tvrre")
+padding = Vector4(24, 18, 24, 18)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvbyl"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 3
+border_width_top = 3
+border_color = Color(0.36, 0.92, 1, 1)
+anti_aliasing = false
+
+[sub_resource type="Resource" id="Resource_kscsq"]
+script = ExtResource("1_ui67p")
+name = "Top Left Bracket"
+position = 5
+depth = 1
+offset = Vector2(-4, -4)
+size = Vector2(18, 18)
+visual_source = 0
+style = SubResource("StyleBoxFlat_tvbyl")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cilpu"]
+bg_color = Color(1, 1, 1, 0)
+border_width_top = 3
+border_width_right = 3
+border_color = Color(0.36, 0.92, 1, 1)
+anti_aliasing = false
+
+[sub_resource type="Resource" id="Resource_rmoi8"]
+script = ExtResource("1_ui67p")
+name = "Top Right Bracket"
+position = 6
+depth = 1
+offset = Vector2(4, -4)
+size = Vector2(18, 18)
+visual_source = 0
+style = SubResource("StyleBoxFlat_cilpu")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4hjc"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 3
+border_width_bottom = 3
+border_color = Color(0.36, 0.92, 1, 1)
+anti_aliasing = false
+
+[sub_resource type="Resource" id="Resource_wg3s5"]
+script = ExtResource("1_ui67p")
+name = "Bottom Left Bracket"
+position = 7
+depth = 1
+offset = Vector2(-4, 4)
+size = Vector2(18, 18)
+visual_source = 0
+style = SubResource("StyleBoxFlat_j4hjc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tn3d"]
+bg_color = Color(1, 1, 1, 0)
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.36, 0.92, 1, 1)
+anti_aliasing = false
+
+[sub_resource type="Resource" id="Resource_dcx2p"]
+script = ExtResource("1_ui67p")
+name = "Bottom Right Bracket"
+position = 8
+depth = 1
+offset = Vector2(4, 4)
+size = Vector2(18, 18)
+visual_source = 0
+style = SubResource("StyleBoxFlat_2tn3d")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrd64"]
+bg_color = Color(0.36, 0.92, 1, 0.08)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.36, 0.92, 1, 0.6)
+anti_aliasing = false
+
+[sub_resource type="Resource" id="Resource_ese8u"]
+script = ExtResource("1_ui67p")
+name = "Portrait Frame"
+slot = 2
+visual_source = 0
+style = SubResource("StyleBoxFlat_jrd64")
+padding_mode = 1
+
+[resource]
+resource_name = "Holo HUD"
+script = ExtResource("3_if52i")
+base = SubResource("Resource_c3bmu")
+font = ExtResource("2_kmy5h")
+text_size = 19
+text_color = Color(0.82, 0.98, 1, 1)
+typewriter_speed = 55.0
+name_font = ExtResource("2_kmy5h")
+name_size = 16
+name_color = Color(0.36, 0.92, 1, 1)
+visual_size = Vector2(96, 96)
+visual_clip_to_frame = true
+continue_text = "_"
+continue_motion = 2
+transition_duration = 0.12
+layers = Array[ExtResource("1_ui67p")]([SubResource("Resource_kscsq"), SubResource("Resource_rmoi8"), SubResource("Resource_wg3s5"), SubResource("Resource_dcx2p"), SubResource("Resource_ese8u")])

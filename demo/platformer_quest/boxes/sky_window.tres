@@ -1,0 +1,98 @@
+[gd_resource type="Resource" script_class="TalkBoxTemplate" format=3]
+
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_layer.gd" id="1_a3cuk"]
+[ext_resource type="FontFile" path="res://demo/platformer_quest/boxes/sky_window/Fredoka.ttf" id="2_lc73u"]
+[ext_resource type="Script" path="res://addons/npc_talkkit/box/talk_box_template.gd" id="3_0b6g3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irei2"]
+bg_color = Color(0.09, 0.2, 0.55, 0.96)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.96, 0.97, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Resource" id="Resource_ejjpw"]
+script = ExtResource("1_a3cuk")
+name = "Base Appearance"
+visual_source = 0
+style = SubResource("StyleBoxFlat_irei2")
+padding = Vector4(22, 18, 22, 16)
+
+[sub_resource type="FontVariation" id="FontVariation_8y678"]
+base_font = ExtResource("2_lc73u")
+variation_opentype = {
+2003265652: 500
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jauji"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.55, 0.95, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = -5.0
+expand_margin_top = -5.0
+expand_margin_right = -5.0
+expand_margin_bottom = -5.0
+
+[sub_resource type="Resource" id="Resource_lo0gb"]
+script = ExtResource("1_a3cuk")
+name = "Inner Line"
+visual_source = 0
+style = SubResource("StyleBoxFlat_jauji")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0leb"]
+bg_color = Color(0.05, 0.12, 0.38, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.96, 0.97, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Resource" id="Resource_0kwe1"]
+script = ExtResource("1_a3cuk")
+name = "Portrait Frame"
+slot = 2
+visual_source = 0
+style = SubResource("StyleBoxFlat_b0leb")
+padding_mode = 1
+
+[sub_resource type="FontVariation" id="FontVariation_7eqji"]
+base_font = ExtResource("2_lc73u")
+variation_opentype = {
+2003265652: 600
+}
+
+[resource]
+resource_name = "Sky Window"
+script = ExtResource("3_0b6g3")
+base = SubResource("Resource_ejjpw")
+font = SubResource("FontVariation_8y678")
+text_size = 21
+name_font = SubResource("FontVariation_7eqji")
+name_size = 21
+name_color = Color(1, 0.86, 0.36, 1)
+visual_size = Vector2(108, 108)
+visual_clip_to_frame = true
+continue_motion = 2
+open_transition = "scale_pop"
+transition_duration = 0.16
+layers = Array[ExtResource("1_a3cuk")]([SubResource("Resource_lo0gb"), SubResource("Resource_0kwe1")])
